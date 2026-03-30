@@ -43,7 +43,7 @@
     .lang-dropdown{position:relative;user-select:none}
     .lang-btn{display:flex;align-items:center;gap:6px;font-family:inherit;font-size:12px;font-weight:600;color:#666;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:8px;padding:5px 10px;cursor:pointer;outline:none;transition:border-color .15s}
     .lang-btn:hover{border-color:#ccc}
-    .lang-btn .flag{font-size:16px;line-height:1}
+    .flag-img{border-radius:2px;vertical-align:middle;object-fit:cover}
     .lang-btn .arrow{font-size:10px;margin-left:2px;transition:transform .15s}
     .lang-dropdown.open .arrow{transform:rotate(180deg)}
     .lang-menu{display:none;position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.1);overflow:hidden;min-width:120px;z-index:100}
@@ -51,7 +51,7 @@
     .lang-option{display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;font-weight:500;color:#444;cursor:pointer;transition:background .1s}
     .lang-option:hover{background:#f8f6f1}
     .lang-option.active{background:#fdf4e3;color:#111;font-weight:600}
-    .lang-option .flag{font-size:18px;line-height:1}
+    .lang-option .flag-img{width:20px;height:15px}
 
     /* HERO */
     .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:radial-gradient(ellipse 80% 70% at 50% 0%,#fdf4e3 0%,#fff 70%),#fff}
@@ -142,18 +142,18 @@
         <li>
           <div class="lang-dropdown" id="lang-dropdown">
             <button type="button" class="lang-btn" onclick="toggleLangMenu()">
-              <span class="flag" id="lang-flag">🇺🇸</span>
+              <img class="flag-img" id="lang-flag" src="https://flagcdn.com/w40/us.png" alt="" width="20" height="15">
               <span id="lang-code">EN</span>
               <span class="arrow">▼</span>
             </button>
             <div class="lang-menu">
-              <div class="lang-option" data-lang="en" onclick="pickLang('en')"><span class="flag">🇺🇸</span> English</div>
-              <div class="lang-option" data-lang="th" onclick="pickLang('th')"><span class="flag">🇹🇭</span> ไทย</div>
-              <div class="lang-option" data-lang="ja" onclick="pickLang('ja')"><span class="flag">🇯🇵</span> 日本語</div>
-              <div class="lang-option" data-lang="zh" onclick="pickLang('zh')"><span class="flag">🇨🇳</span> 中文</div>
-              <div class="lang-option" data-lang="ko" onclick="pickLang('ko')"><span class="flag">🇰🇷</span> 한국어</div>
-              <div class="lang-option" data-lang="hi" onclick="pickLang('hi')"><span class="flag">🇮🇳</span> हिन्दी</div>
-              <div class="lang-option" data-lang="es" onclick="pickLang('es')"><span class="flag">🇪🇸</span> Español</div>
+              <div class="lang-option" data-lang="en" onclick="pickLang('en')"><img class="flag-img" src="https://flagcdn.com/w40/us.png" alt="" width="20" height="15"> English</div>
+              <div class="lang-option" data-lang="th" onclick="pickLang('th')"><img class="flag-img" src="https://flagcdn.com/w40/th.png" alt="" width="20" height="15"> ไทย</div>
+              <div class="lang-option" data-lang="ja" onclick="pickLang('ja')"><img class="flag-img" src="https://flagcdn.com/w40/jp.png" alt="" width="20" height="15"> 日本語</div>
+              <div class="lang-option" data-lang="zh" onclick="pickLang('zh')"><img class="flag-img" src="https://flagcdn.com/w40/cn.png" alt="" width="20" height="15"> 中文</div>
+              <div class="lang-option" data-lang="ko" onclick="pickLang('ko')"><img class="flag-img" src="https://flagcdn.com/w40/kr.png" alt="" width="20" height="15"> 한국어</div>
+              <div class="lang-option" data-lang="hi" onclick="pickLang('hi')"><img class="flag-img" src="https://flagcdn.com/w40/in.png" alt="" width="20" height="15"> हिन्दी</div>
+              <div class="lang-option" data-lang="es" onclick="pickLang('es')"><img class="flag-img" src="https://flagcdn.com/w40/es.png" alt="" width="20" height="15"> Español</div>
             </div>
           </div>
         </li>

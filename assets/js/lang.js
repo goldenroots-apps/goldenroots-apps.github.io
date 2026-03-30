@@ -239,7 +239,7 @@ var LANGS = {
   }
 };
 
-var LANG_FLAGS = {en:'🇺🇸',th:'🇹🇭',ja:'🇯🇵',zh:'🇨🇳',ko:'🇰🇷',hi:'🇮🇳',es:'🇪🇸'};
+var LANG_FLAGS = {en:'us',th:'th',ja:'jp',zh:'cn',ko:'kr',hi:'in',es:'es'};
 
 function setLang(lang) {
   var t = LANGS[lang];
@@ -254,7 +254,7 @@ function setLang(lang) {
   // Update custom dropdown button
   var flagEl = document.getElementById('lang-flag');
   var codeEl = document.getElementById('lang-code');
-  if (flagEl) flagEl.textContent = LANG_FLAGS[lang] || '';
+  if (flagEl) flagEl.src = 'https://flagcdn.com/w40/' + (LANG_FLAGS[lang] || 'us') + '.png';
   if (codeEl) codeEl.textContent = lang.toUpperCase();
   // Update active state in menu
   document.querySelectorAll('.lang-option').forEach(function(el) {
