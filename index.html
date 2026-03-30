@@ -117,6 +117,28 @@
     .footer-links a{color:#bbb;text-decoration:none;font-size:13px;transition:color .15s}
     .footer-links a:hover{color:#666}
 
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .anim{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    .anim.visible{opacity:1;transform:translateY(0)}
+    .anim-delay-1{transition-delay:.1s}
+    .anim-delay-2{transition-delay:.2s}
+    .anim-delay-3{transition-delay:.3s}
+    .hero-content{animation:fadeUp .8s ease forwards}
+    .hero-pill{animation:fadeIn .6s ease .2s both}
+    .hero h1{animation:fadeUp .7s ease .3s both}
+    .hero p{animation:fadeUp .7s ease .4s both}
+    .hero-actions{animation:fadeUp .7s ease .5s both}
+    .nav{animation:fadeIn .5s ease both}
+    .feature{transition:background .15s,transform .2s}
+    .feature:hover{transform:translateY(-4px)}
+    .app-card{transition:border-color .15s,box-shadow .15s,transform .2s}
+    .app-card:hover{transform:translateY(-4px)}
+    .btn{transition:background .15s,box-shadow .15s,transform .15s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+
     /* RESPONSIVE */
     @media(max-width:768px){.features-grid{grid-template-columns:1fr}}
     @media(max-width:640px){
@@ -184,26 +206,26 @@
     <div class="divider"></div>
 
     <section class="section features-bg" id="features">
-      <div class="section-header">
+      <div class="section-header anim">
         <p class="section-tag" data-i18n="feat_tag">Why Golden Roots</p>
         <h2 class="section-title" data-i18n="feat_title">Built different.<br>Built better.</h2>
       </div>
       <div class="features-grid">
-        <div class="feature">
+        <div class="feature anim anim-delay-1">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <h3 data-i18n="feat_1_title">Lightning Fast</h3>
           <p data-i18n="feat_1_desc">Instant scanning with real-time detection. No loading, no waiting.</p>
         </div>
-        <div class="feature">
+        <div class="feature anim anim-delay-2">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 data-i18n="feat_2_title">Privacy First</h3>
           <p data-i18n="feat_2_desc">Your data stays on your device. No tracking, no external servers.</p>
         </div>
-        <div class="feature">
+        <div class="feature anim anim-delay-3">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H2m10-10v20M17 7l-5-5-5 5m10 10l-5 5-5-5"/></svg>
           </div>
@@ -216,11 +238,11 @@
     <div class="divider"></div>
 
     <section class="section" id="apps">
-      <div class="section-header">
+      <div class="section-header anim">
         <p class="section-tag" data-i18n="apps_tag">Our Apps</p>
         <h2 class="section-title" data-i18n="apps_title">Designed for you.</h2>
       </div>
-      <article class="app-card">
+      <article class="app-card anim">
         <div class="app-icon">
           <img src="assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ & Barcode app icon" width="72" height="72">
         </div>
@@ -243,8 +265,8 @@
     </section>
 
     <section class="cta">
-      <h2 data-i18n="cta_title">More apps coming soon.</h2>
-      <p data-i18n="cta_desc">We're building new tools to make your daily life simpler.</p>
+      <h2 class="anim" data-i18n="cta_title">More apps coming soon.</h2>
+      <p class="anim anim-delay-1" data-i18n="cta_desc">We're building new tools to make your daily life simpler.</p>
       <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-dark"><span data-i18n="btn_contact">Get in touch</span></a>
     </section>
   </main>
@@ -260,6 +282,17 @@
   </footer>
 
   <script src="assets/js/lang.js"></script>
+  <script>
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.anim').forEach(function(el) { observer.observe(el); });
+  </script>
 
 </body>
 </html>
