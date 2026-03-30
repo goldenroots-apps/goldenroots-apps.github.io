@@ -1,30 +1,310 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Scanner Pro+ – Golden Roots Apps</title>
+  <title>Golden Roots – Mobile Apps</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Apps Section */
+    .section-title {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #60a5fa;
+      margin-bottom: 32px;
+    }
+
+    .apps {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 24px 60px;
+    }
+
+    .app-card {
+      background: linear-gradient(145deg, #1e293b, #1a2332);
+      border: 1px solid #334155;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: #60a5fa;
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+    }
+
+    .app-info {
+      flex: 1;
+    }
+
+    .app-info h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 6px;
+    }
+
+    .app-info p {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-android {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .badge-downloads {
+      background: rgba(96, 165, 250, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .badge-rating {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .app-arrow {
+      font-size: 24px;
+      color: #475569;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .app-card:hover .app-arrow {
+      color: #60a5fa;
+      transform: translateX(4px);
+    }
+
+    /* Coming Soon */
+    .coming-soon {
+      text-align: center;
+      padding: 40px;
+      border: 2px dashed #334155;
+      border-radius: 20px;
+      color: #475569;
+      margin-bottom: 24px;
+    }
+
+    .coming-soon p {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #60a5fa;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #334155;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 20px 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .app-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+        gap: 16px;
+      }
+
+      .app-badges {
+        justify-content: center;
+      }
+
+      .app-arrow {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>QR Scanner Pro+</h1>
-  <p>QR Scanner Pro+ is a fast and reliable QR code and barcode scanner app for Android. Scan codes using your camera, photo library, or URL. Back up your scan history securely to Google Drive.</p>
 
-  <h2>Features</h2>
-  <ul>
-    <li>Scan QR codes and barcodes instantly with your camera</li>
-    <li>Scan from saved images or URLs</li>
-    <li>Save scan history with thumbnails</li>
-    <li>Backup and restore via Google Drive</li>
-    <li>Multiple color themes</li>
-    <li>App lock with PIN and biometric</li>
-  </ul>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo">🌱</div>
+      <h1>Golden Roots</h1>
+      <p>Crafting simple, powerful mobile apps that make everyday tasks easier.</p>
+    </div>
+  </section>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://goldenroots-apps.github.io/qrscannerpro-privacy.html">Privacy Policy</a></li>
-  </ul>
+  <!-- Apps -->
+  <section class="apps">
+    <div class="section-title">Our Apps</div>
 
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:goldenroots.apps@gmail.com">goldenroots.apps@gmail.com</a></p>
+    <!-- QR Scanner Pro+ -->
+    <a class="app-card" href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank">
+      <div class="app-icon">📷</div>
+      <div class="app-info">
+        <h3>QR Scanner Pro+ & Barcode</h3>
+        <p>Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.</p>
+        <div class="app-badges">
+          <span class="badge badge-android">Android</span>
+          <span class="badge badge-downloads">12K+ Downloads</span>
+          <span class="badge badge-rating">4.3 ★</span>
+        </div>
+      </div>
+      <span class="app-arrow">→</span>
+    </a>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon">
+      <div style="font-size: 32px;">🚀</div>
+      <p>More apps coming soon...</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:goldenroots.apps@gmail.com">Contact</a>
+      <a href="qrscannerpro-privacy.html">Privacy Policy</a>
+      <a href="https://play.google.com/store/apps/dev?id=7575412430307596351" target="_blank">Google Play</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Golden Roots. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
