@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +35,14 @@
     .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}
     .nav-brand img{width:28px;height:28px;border-radius:7px}
     .nav-brand span{font-size:15px;font-weight:700}
-    .nav-links{display:flex;gap:4px;list-style:none}
-    .nav-links a{color:#666;text-decoration:none;font-size:13px;font-weight:500;padding:6px 14px;border-radius:8px;transition:color .15s,background .15s}
-    .nav-links a:hover{color:#111;background:#f5f5f5}
+    .nav-right{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-right a{color:#666;text-decoration:none;font-size:13px;font-weight:500;padding:6px 14px;border-radius:8px;transition:color .15s,background .15s}
+    .nav-right a:hover{color:#111;background:#f5f5f5}
+
+    /* LANG SELECT */
+    .lang-select{font-family:inherit;font-size:12px;font-weight:600;color:#666;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:8px;padding:5px 8px;cursor:pointer;outline:none;transition:border-color .15s}
+    .lang-select:hover{border-color:#ccc}
+    .lang-select:focus{border-color:#c8952c}
 
     /* HERO */
     .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:radial-gradient(ellipse 80% 70% at 50% 0%,#fdf4e3 0%,#fff 70%),#fff}
@@ -105,7 +110,7 @@
     /* RESPONSIVE */
     @media(max-width:768px){.features-grid{grid-template-columns:1fr}}
     @media(max-width:640px){
-      .nav-links{display:none}
+      .nav-right .nav-link{display:none}
       .hero{min-height:auto;padding:120px 20px 80px}
       .app-card{flex-direction:column;text-align:center;align-items:center;gap:20px}
       .badges,.app-actions{justify-content:center}
@@ -121,10 +126,21 @@
         <img src="assets/images/goldenroots-logo.png" alt="Golden Roots logo" width="28" height="28">
         <span>Golden Roots</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#apps">Apps</a></li>
-        <li><a href="mailto:goldenroots.apps@gmail.com">Contact</a></li>
+      <ul class="nav-right">
+        <li class="nav-link"><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li class="nav-link"><a href="#apps" data-i18n="nav_apps">Apps</a></li>
+        <li class="nav-link"><a href="mailto:goldenroots.apps@gmail.com" data-i18n="nav_contact">Contact</a></li>
+        <li>
+          <select id="lang-select" class="lang-select" onchange="setLang(this.value)">
+            <option value="en">EN</option>
+            <option value="th">TH</option>
+            <option value="ja">JA</option>
+            <option value="zh">ZH</option>
+            <option value="ko">KO</option>
+            <option value="hi">HI</option>
+            <option value="es">ES</option>
+          </select>
+        </li>
       </ul>
     </div>
   </nav>
@@ -134,16 +150,16 @@
       <div class="hero-content">
         <div class="hero-pill">
           <span class="dot"></span>
-          QR Scanner Pro+ &mdash; now with Google Drive backup
+          <span data-i18n="hero_pill">QR Scanner Pro+ &mdash; now with Google Drive backup</span>
         </div>
-        <h1>Your shortcut to<br><em>everyday</em> tasks.</h1>
-        <p>Simple, powerful mobile apps that save your time and just work.</p>
+        <h1 data-i18n="hero_title">Your shortcut to<br><em>everyday</em> tasks.</h1>
+        <p data-i18n="hero_desc">Simple, powerful mobile apps that save your time and just work.</p>
         <div class="hero-actions">
           <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-dark">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-            Download on Google Play
+            <span data-i18n="btn_download">Download on Google Play</span>
           </a>
-          <a href="#apps" class="btn btn-ghost">Learn more</a>
+          <a href="#apps" class="btn btn-ghost"><span data-i18n="btn_learn">Learn more</span></a>
         </div>
       </div>
     </section>
@@ -152,30 +168,30 @@
 
     <section class="section features-bg" id="features">
       <div class="section-header">
-        <p class="section-tag">Why Golden Roots</p>
-        <h2 class="section-title">Built different.<br>Built better.</h2>
+        <p class="section-tag" data-i18n="feat_tag">Why Golden Roots</p>
+        <h2 class="section-title" data-i18n="feat_title">Built different.<br>Built better.</h2>
       </div>
       <div class="features-grid">
         <div class="feature">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <h3>Lightning Fast</h3>
-          <p>Instant scanning with real-time detection. No loading, no waiting.</p>
+          <h3 data-i18n="feat_1_title">Lightning Fast</h3>
+          <p data-i18n="feat_1_desc">Instant scanning with real-time detection. No loading, no waiting.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3>Privacy First</h3>
-          <p>Your data stays on your device. No tracking, no external servers.</p>
+          <h3 data-i18n="feat_2_title">Privacy First</h3>
+          <p data-i18n="feat_2_desc">Your data stays on your device. No tracking, no external servers.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H2m10-10v20M17 7l-5-5-5 5m10 10l-5 5-5-5"/></svg>
           </div>
-          <h3>Cloud Backup</h3>
-          <p>Optional Google Drive backup keeps your scan history safely stored.</p>
+          <h3 data-i18n="feat_3_title">Cloud Backup</h3>
+          <p data-i18n="feat_3_desc">Optional Google Drive backup keeps your scan history safely stored.</p>
         </div>
       </div>
     </section>
@@ -184,47 +200,49 @@
 
     <section class="section" id="apps">
       <div class="section-header">
-        <p class="section-tag">Our Apps</p>
-        <h2 class="section-title">Designed for you.</h2>
+        <p class="section-tag" data-i18n="apps_tag">Our Apps</p>
+        <h2 class="section-title" data-i18n="apps_title">Designed for you.</h2>
       </div>
       <article class="app-card">
         <div class="app-icon">
           <img src="assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ & Barcode app icon" width="72" height="72">
         </div>
         <div class="app-info">
-          <h3>QR Scanner Pro+ & Barcode</h3>
-          <p>Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.</p>
+          <h3 data-i18n="app_name">QR Scanner Pro+ & Barcode</h3>
+          <p data-i18n="app_desc">Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.</p>
           <div class="badges">
-            <span class="badge badge-green">Android</span>
-            <span class="badge badge-blue">12K+ Downloads</span>
+            <span class="badge badge-green" data-i18n="badge_android">Android</span>
+            <span class="badge badge-blue" data-i18n="badge_downloads">12K+ Downloads</span>
           </div>
           <div class="app-actions">
             <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-dark">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-              Google Play
+              <span data-i18n="btn_gplay">Google Play</span>
             </a>
-            <a href="apps/qrscannerpro/privacy.html" class="btn btn-ghost">Privacy Policy</a>
+            <a href="apps/qrscannerpro/privacy.html" class="btn btn-ghost"><span data-i18n="btn_privacy">Privacy Policy</span></a>
           </div>
         </div>
       </article>
     </section>
 
     <section class="cta">
-      <h2>More apps coming soon.</h2>
-      <p>We're building new tools to make your daily life simpler.</p>
-      <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-dark">Get in touch</a>
+      <h2 data-i18n="cta_title">More apps coming soon.</h2>
+      <p data-i18n="cta_desc">We're building new tools to make your daily life simpler.</p>
+      <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-dark"><span data-i18n="btn_contact">Get in touch</span></a>
     </section>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 Golden Roots. All rights reserved.</p>
+      <p class="footer-copy" data-i18n="footer_copy">&copy; 2026 Golden Roots. All rights reserved.</p>
       <ul class="footer-links">
-        <li><a href="mailto:goldenroots.apps@gmail.com">Contact</a></li>
-        <li><a href="https://play.google.com/store/apps/developer?id=Golden+Roots" target="_blank" rel="noopener">Google Play</a></li>
+        <li><a href="mailto:goldenroots.apps@gmail.com" data-i18n="footer_contact">Contact</a></li>
+        <li><a href="https://play.google.com/store/apps/developer?id=Golden+Roots" target="_blank" rel="noopener" data-i18n="footer_gplay">Google Play</a></li>
       </ul>
     </div>
   </footer>
+
+  <script src="assets/js/lang.js"></script>
 
 </body>
 </html>
