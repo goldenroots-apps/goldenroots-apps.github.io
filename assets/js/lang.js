@@ -254,7 +254,7 @@ function setLang(lang) {
   // Update custom dropdown button
   var flagEl = document.getElementById('lang-flag');
   var codeEl = document.getElementById('lang-code');
-  if (flagEl) flagEl.src = 'https://flagcdn.com/w40/' + (LANG_FLAGS[lang] || 'us') + '.png';
+  if (flagEl) { flagEl.className = 'fi fi-' + (LANG_FLAGS[lang] || 'us'); }
   if (codeEl) codeEl.textContent = lang.toUpperCase();
   // Update active state in menu
   document.querySelectorAll('.lang-option').forEach(function(el) {
