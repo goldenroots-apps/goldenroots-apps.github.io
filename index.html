@@ -69,18 +69,20 @@
 
     :root {
       --bg: #ffffff;
-      --bg-secondary: #f8f9fb;
-      --bg-tertiary: #f0f2f5;
+      --bg-secondary: #fafbfc;
       --text-primary: #111827;
       --text-secondary: #4b5563;
       --text-tertiary: #9ca3af;
       --accent: #c8952c;
-      --accent-light: #f5e6c8;
-      --accent-glow: rgba(200, 149, 44, 0.12);
+      --accent-light: #faf0db;
       --border: #e5e7eb;
       --border-light: #f3f4f6;
       --radius: 16px;
       --radius-sm: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -92,15 +94,88 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── Navbar ─── */
+    /* ═══════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════ */
+
+    /* Fade up on scroll */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children */
+    .stagger-children .animate-on-scroll:nth-child(1) { transition-delay: 0ms; }
+    .stagger-children .animate-on-scroll:nth-child(2) { transition-delay: 100ms; }
+    .stagger-children .animate-on-scroll:nth-child(3) { transition-delay: 200ms; }
+
+    /* Hero entrance */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroBadgeIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Animated gradient beams (Raycast-inspired) */
+    @keyframes beamRotate {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes beamPulse {
+      0%, 100% { opacity: 0.5; }
+      50%      { opacity: 1; }
+    }
+
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .animate-on-scroll { opacity: 1; transform: none; }
+    }
+
+    /* ═══════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════ */
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
     }
 
     .navbar-inner {
@@ -151,68 +226,149 @@
       color: var(--text-primary);
     }
 
-    /* ─── Hero ─── */
+    /* ═══════════════════════════════════
+       HERO
+       ═══════════════════════════════════ */
     .hero {
       position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 24px 80px;
+      padding: 120px 24px 80px;
       overflow: hidden;
+      background: linear-gradient(180deg, #fffbf0 0%, #ffffff 60%);
     }
 
-    .hero::before {
+    /* Animated beam effects */
+    .hero-beams {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-beams .beam {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: beamPulse 6s ease-in-out infinite;
+    }
+
+    .hero-beams .beam-1 {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(232, 184, 74, 0.2) 0%, transparent 70%);
+      animation-delay: 0s;
+    }
+
+    .hero-beams .beam-2 {
+      width: 500px;
+      height: 500px;
+      bottom: -150px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 70%);
+      animation-delay: 2s;
+    }
+
+    .hero-beams .beam-3 {
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(200, 149, 44, 0.08) 0%, transparent 70%);
+      animation-delay: 4s;
+    }
+
+    /* Diagonal light streaks */
+    .hero-streaks {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .hero-streaks::before,
+    .hero-streaks::after {
       content: '';
       position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 900px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
-      pointer-events: none;
+      width: 2px;
+      height: 300%;
+      top: -100%;
+      background: linear-gradient(180deg, transparent, rgba(200, 149, 44, 0.3), transparent);
+      transform: rotate(25deg);
+      animation: shimmer 8s ease-in-out infinite;
+    }
+
+    .hero-streaks::before {
+      left: 30%;
+      animation-delay: 0s;
+    }
+
+    .hero-streaks::after {
+      left: 65%;
+      animation-delay: 4s;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
+      gap: 8px;
+      padding: 7px 18px;
       border-radius: 100px;
       background: var(--accent-light);
       color: var(--accent);
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      animation: heroBadgeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: beamPulse 2s ease-in-out infinite;
     }
 
     .hero h1 {
-      font-size: 56px;
+      font-size: 64px;
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
+      line-height: 1.05;
+      letter-spacing: -2px;
       color: var(--text-primary);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
     }
 
     .hero h1 .highlight {
-      background: linear-gradient(135deg, #c8952c, #e8b84a);
+      background: linear-gradient(135deg, #c8952c, #e8b84a, #d4a030);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero p {
-      font-size: 19px;
+      font-size: 20px;
       color: var(--text-secondary);
       line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 36px;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
     }
 
     .hero-actions {
@@ -220,21 +376,54 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+      animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
     }
 
-    /* ─── Buttons ─── */
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+    }
+
+    .scroll-indicator .mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .scroll-indicator .mouse .wheel {
+      width: 3px;
+      height: 8px;
+      background: var(--text-tertiary);
+      border-radius: 2px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════
+       BUTTONS
+       ═══════════════════════════════════ */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 28px;
+      padding: 13px 28px;
       border-radius: var(--radius-sm);
       font-size: 15px;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       border: none;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-primary {
@@ -242,10 +431,27 @@
       color: #ffffff;
     }
 
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+
+    .btn-primary:hover::after {
+      transform: translateX(100%);
+    }
+
     .btn-primary:hover {
-      background: #374151;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-      transform: translateY(-1px);
+      background: #1f2937;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
     }
 
     .btn-ghost {
@@ -258,13 +464,17 @@
       background: var(--bg-secondary);
       color: var(--text-primary);
       border-color: #d1d5db;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
-    /* ─── Features ─── */
+    /* ═══════════════════════════════════
+       FEATURES
+       ═══════════════════════════════════ */
     .features {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 40px 24px 100px;
+      padding: 80px 24px 100px;
     }
 
     .features-header {
@@ -282,9 +492,9 @@
     }
 
     .features-title {
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 800;
-      letter-spacing: -0.8px;
+      letter-spacing: -1px;
       color: var(--text-primary);
     }
 
@@ -292,49 +502,75 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
 
     .feature-card {
-      background: var(--bg-secondary);
+      background: var(--bg);
       border: 1px solid var(--border-light);
       border-radius: var(--radius);
-      padding: 28px;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      padding: 32px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #e8b84a);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
     }
 
     .feature-card:hover {
       border-color: var(--border);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      transform: translateY(-4px);
     }
 
     .feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--accent-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
-      font-size: 20px;
+      margin-bottom: 18px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
     }
 
     .feature-card h3 {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .feature-card p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-tertiary);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* ─── App Showcase ─── */
+    /* ═══════════════════════════════════
+       APP SHOWCASE
+       ═══════════════════════════════════ */
     .showcase {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-light);
@@ -362,25 +598,26 @@
     }
 
     .showcase-title {
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 800;
-      letter-spacing: -0.8px;
+      letter-spacing: -1px;
       color: var(--text-primary);
     }
 
     .app-card {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px;
+      border-radius: 24px;
+      padding: 40px;
       display: flex;
       align-items: flex-start;
       gap: 28px;
-      transition: box-shadow 0.3s;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .app-card:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+      transform: translateY(-4px);
     }
 
     .app-icon {
@@ -389,7 +626,12 @@
       border-radius: 20px;
       flex-shrink: 0;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+
+    .app-card:hover .app-icon {
+      transform: scale(1.05);
     }
 
     .app-icon img {
@@ -403,15 +645,15 @@
     }
 
     .app-info h3 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       letter-spacing: -0.3px;
     }
 
     .app-info > p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 16px;
@@ -426,7 +668,7 @@
 
     .badge {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 100px;
       font-size: 12px;
       font-weight: 600;
@@ -449,34 +691,40 @@
     }
 
     .app-actions .btn {
-      padding: 10px 20px;
-      font-size: 13px;
+      padding: 10px 22px;
+      font-size: 14px;
     }
 
-    /* ─── CTA ─── */
+    /* ═══════════════════════════════════
+       CTA
+       ═══════════════════════════════════ */
     .cta {
+      position: relative;
       text-align: center;
-      padding: 100px 24px;
-      max-width: 600px;
+      padding: 120px 24px;
+      max-width: 700px;
       margin: 0 auto;
+      overflow: hidden;
     }
 
     .cta h2 {
-      font-size: 32px;
+      font-size: 40px;
       font-weight: 800;
-      letter-spacing: -0.8px;
+      letter-spacing: -1px;
       color: var(--text-primary);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .cta p {
-      font-size: 16px;
+      font-size: 17px;
       color: var(--text-secondary);
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       line-height: 1.7;
     }
 
-    /* ─── Footer ─── */
+    /* ═══════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════ */
     footer {
       border-top: 1px solid var(--border-light);
       padding: 32px 24px;
@@ -514,7 +762,9 @@
       color: var(--text-primary);
     }
 
-    /* ─── Responsive ─── */
+    /* ═══════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════ */
     @media (max-width: 768px) {
       .features-grid {
         grid-template-columns: 1fr;
@@ -523,27 +773,16 @@
     }
 
     @media (max-width: 640px) {
-      .navbar-links {
-        display: none;
-      }
+      .navbar-links { display: none; }
 
-      .hero {
-        padding: 64px 20px 56px;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
+      .hero { padding: 100px 20px 56px; min-height: auto; }
+      .hero h1 { font-size: 40px; letter-spacing: -1.2px; }
+      .hero p { font-size: 17px; }
+      .scroll-indicator { display: none; }
 
       .features-title,
-      .showcase-title {
-        font-size: 28px;
-      }
+      .showcase-title,
+      .cta h2 { font-size: 30px; }
 
       .app-card {
         flex-direction: column;
@@ -553,17 +792,8 @@
         gap: 20px;
       }
 
-      .app-badges {
-        justify-content: center;
-      }
-
-      .app-actions {
-        justify-content: center;
-      }
-
-      .cta h2 {
-        font-size: 26px;
-      }
+      .app-badges { justify-content: center; }
+      .app-actions { justify-content: center; }
 
       .footer-inner {
         flex-direction: column;
@@ -582,8 +812,8 @@
         <span>Golden Roots</span>
       </a>
       <ul class="navbar-links">
-        <li><a href="#apps">Apps</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#apps">Apps</a></li>
         <li><a href="mailto:goldenroots.apps@gmail.com">Contact</a></li>
       </ul>
     </div>
@@ -592,9 +822,17 @@
   <main>
     <!-- Hero -->
     <section class="hero">
+      <!-- Animated background beams -->
+      <div class="hero-beams">
+        <div class="beam beam-1"></div>
+        <div class="beam beam-2"></div>
+        <div class="beam beam-3"></div>
+      </div>
+      <div class="hero-streaks"></div>
+
       <div class="hero-content">
-        <div class="hero-badge">New — QR Scanner Pro+ now with Google Drive backup</div>
-        <h1>Apps that make <span class="highlight">everyday</span> easier</h1>
+        <div class="hero-badge">QR Scanner Pro+ — now with Google Drive backup</div>
+        <h1>Apps that make<br><span class="highlight">everyday</span> easier.</h1>
         <p>We build simple, powerful mobile tools designed to save your time and just work.</p>
         <div class="hero-actions">
           <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Download on Google Play">
@@ -604,35 +842,40 @@
           <a href="#apps" class="btn btn-ghost">Learn more</a>
         </div>
       </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <div class="mouse"><div class="wheel"></div></div>
+      </div>
     </section>
 
     <!-- Features -->
     <section class="features" id="features">
-      <div class="features-header">
+      <div class="features-header animate-on-scroll">
         <p class="features-label">Why Golden Roots</p>
         <h2 class="features-title">Built different, built better</h2>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
+      <div class="features-grid stagger-children">
+        <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <h3>Lightning Fast</h3>
-          <p>Instant scanning with real-time detection. No loading, no waiting.</p>
+          <p>Instant scanning with real-time detection. No loading, no waiting around.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3>Privacy First</h3>
           <p>Your data stays on your device. No tracking, no external servers.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card animate-on-scroll">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18m-7-7l7 7 7-7"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12H2m10-10v20M17 7l-5-5-5 5m10 10l-5 5-5-5"/></svg>
           </div>
           <h3>Cloud Backup</h3>
-          <p>Optional Google Drive backup. Your history, safely stored.</p>
+          <p>Optional Google Drive backup keeps your scan history safely stored.</p>
         </div>
       </div>
     </section>
@@ -640,12 +883,12 @@
     <!-- App Showcase -->
     <section class="showcase" id="apps">
       <div class="showcase-inner">
-        <div class="showcase-header">
+        <div class="showcase-header animate-on-scroll">
           <p class="showcase-label">Our Apps</p>
           <h2 class="showcase-title">Built with care, designed for you</h2>
         </div>
 
-        <article class="app-card">
+        <article class="app-card animate-on-scroll">
           <div class="app-icon">
             <img src="assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ & Barcode app icon" width="80" height="80">
           </div>
@@ -670,9 +913,11 @@
 
     <!-- CTA -->
     <section class="cta">
-      <h2>More apps coming soon</h2>
-      <p>We're working on new tools to make your daily life simpler. Stay tuned.</p>
-      <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-primary">Get in touch</a>
+      <div class="animate-on-scroll">
+        <h2>More apps coming soon</h2>
+        <p>We're working on new tools to make your daily life simpler. Stay tuned.</p>
+        <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-primary">Get in touch</a>
+      </div>
     </section>
   </main>
 
@@ -686,6 +931,36 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Scroll animations & navbar behavior -->
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // Navbar scroll effect
+    var navbar = document.querySelector('.navbar');
+    var lastScroll = 0;
+
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.scrollY;
+      if (currentScroll > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+  </script>
 
 </body>
 </html>
