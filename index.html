@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Golden Roots — Crafting simple, powerful mobile apps that make everyday tasks easier. Download QR Scanner Pro+ on Google Play.">
   <meta name="author" content="Golden Roots">
-  <meta name="theme-color" content="#0a0f1a">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://goldenroots.dev/">
@@ -67,172 +67,329 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
-      background: #0a0f1a;
-      color: #e2e8f0;
-      min-height: 100vh;
-      overflow-x: hidden;
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f8f9fb;
+      --bg-tertiary: #f0f2f5;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-tertiary: #9ca3af;
+      --accent: #c8952c;
+      --accent-light: #f5e6c8;
+      --accent-glow: rgba(200, 149, 44, 0.12);
+      --border: #e5e7eb;
+      --border-light: #f3f4f6;
+      --radius: 16px;
+      --radius-sm: 10px;
     }
 
-    /* Navbar */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Navbar ─── */
     .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 20px 24px;
+      padding: 14px 24px;
     }
 
     .navbar-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
-      color: #f1f5f9;
+      color: var(--text-primary);
     }
 
     .navbar-brand img {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
     }
 
     .navbar-brand span {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
-      background: linear-gradient(135deg, #d4a837, #f0d060);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: -0.3px;
     }
 
     .navbar-links {
       display: flex;
-      gap: 28px;
+      align-items: center;
+      gap: 32px;
       list-style: none;
     }
 
     .navbar-links a {
-      color: #94a3b8;
+      color: var(--text-secondary);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     .navbar-links a:hover {
-      color: #d4a837;
+      color: var(--text-primary);
     }
 
-    /* Hero */
+    /* ─── Hero ─── */
     .hero {
       position: relative;
       text-align: center;
-      padding: 80px 24px 100px;
+      padding: 100px 24px 80px;
       overflow: hidden;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: -40%;
+      top: -200px;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(212, 168, 55, 0.08) 0%, transparent 70%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
-    .logo img {
-      width: 100px;
-      height: 100px;
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(212, 168, 55, 0.2);
-      margin-bottom: 28px;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 56px;
       font-weight: 800;
-      line-height: 1.15;
-      background: linear-gradient(135deg, #d4a837, #f0d060, #c89b30);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #c8952c, #e8b84a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 16px;
     }
 
     .hero p {
       font-size: 19px;
-      color: #94a3b8;
+      color: var(--text-secondary);
       line-height: 1.7;
-      max-width: 520px;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #374151;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: var(--bg);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: #d1d5db;
+    }
+
+    /* ─── Features ─── */
+    .features {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .features-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .features-title {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
-    /* Section */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
+    .feature-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .section-header {
+    .feature-card:hover {
+      border-color: var(--border);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    /* ─── App Showcase ─── */
+    .showcase {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 80px 24px;
+    }
+
+    .showcase-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .showcase-header {
       text-align: center;
       margin-bottom: 48px;
     }
 
-    .section-label {
+    .showcase-label {
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #d4a837;
-      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
     }
 
-    .section-title {
-      font-size: 32px;
-      font-weight: 700;
-      color: #f1f5f9;
+    .showcase-title {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
     }
 
-    /* App Card */
     .app-card {
-      background: linear-gradient(160deg, #141c2e, #111827);
-      border: 1px solid #1e293b;
-      border-radius: 24px;
-      padding: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
       display: flex;
       align-items: flex-start;
-      gap: 32px;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      max-width: 800px;
-      margin: 0 auto 32px;
+      gap: 28px;
+      transition: box-shadow 0.3s;
     }
 
     .app-card:hover {
-      border-color: rgba(212, 168, 55, 0.3);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     }
 
     .app-icon {
-      width: 88px;
-      height: 88px;
-      border-radius: 22px;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
       flex-shrink: 0;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     .app-icon img {
@@ -246,15 +403,16 @@
     }
 
     .app-info h3 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 8px;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
     }
 
-    .app-info p {
-      font-size: 15px;
-      color: #94a3b8;
+    .app-info > p {
+      font-size: 14px;
+      color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 16px;
     }
@@ -268,88 +426,64 @@
 
     .badge {
       display: inline-block;
-      padding: 5px 14px;
-      border-radius: 20px;
+      padding: 4px 12px;
+      border-radius: 100px;
       font-size: 12px;
       font-weight: 600;
     }
 
     .badge-android {
-      background: rgba(52, 211, 153, 0.1);
-      color: #34d399;
-      border: 1px solid rgba(52, 211, 153, 0.2);
+      background: #ecfdf5;
+      color: #059669;
     }
 
     .badge-downloads {
-      background: rgba(96, 165, 250, 0.1);
-      color: #60a5fa;
-      border: 1px solid rgba(96, 165, 250, 0.2);
+      background: #eff6ff;
+      color: #2563eb;
     }
 
     .app-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      align-items: center;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
+    .app-actions .btn {
+      padding: 10px 20px;
+      font-size: 13px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #d4a837, #b8942a);
-      color: #0a0f1a;
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 4px 20px rgba(212, 168, 55, 0.3);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #94a3b8;
-      border: 1px solid #1e293b;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #e2e8f0;
-    }
-
-    /* Coming Soon */
-    .coming-soon {
+    /* ─── CTA ─── */
+    .cta {
       text-align: center;
-      padding: 48px 32px;
-      border: 1px dashed #1e293b;
-      border-radius: 24px;
-      max-width: 800px;
+      padding: 100px 24px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    .coming-soon p {
-      font-size: 15px;
-      color: #475569;
-      margin-top: 8px;
+    .cta h2 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
     }
 
-    /* Footer */
+    .cta p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    /* ─── Footer ─── */
     footer {
-      border-top: 1px solid #141c2e;
-      padding: 40px 24px;
+      border-top: 1px solid var(--border-light);
+      padding: 32px 24px;
     }
 
     .footer-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -360,7 +494,7 @@
 
     .footer-copy {
       font-size: 13px;
-      color: #334155;
+      color: var(--text-tertiary);
     }
 
     .footer-links {
@@ -370,49 +504,53 @@
     }
 
     .footer-links a {
-      color: #475569;
+      color: var(--text-tertiary);
       text-decoration: none;
       font-size: 13px;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     .footer-links a:hover {
-      color: #d4a837;
+      color: var(--text-primary);
     }
 
-    /* Responsive */
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+
     @media (max-width: 640px) {
       .navbar-links {
         display: none;
       }
 
       .hero {
-        padding: 48px 20px 64px;
+        padding: 64px 20px 56px;
       }
 
       .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
+        letter-spacing: -1px;
       }
 
       .hero p {
         font-size: 16px;
       }
 
-      .logo img {
-        width: 80px;
-        height: 80px;
-      }
-
-      .section-title {
-        font-size: 24px;
+      .features-title,
+      .showcase-title {
+        font-size: 28px;
       }
 
       .app-card {
         flex-direction: column;
         text-align: center;
+        align-items: center;
         padding: 28px;
         gap: 20px;
-        align-items: center;
       }
 
       .app-badges {
@@ -421,6 +559,10 @@
 
       .app-actions {
         justify-content: center;
+      }
+
+      .cta h2 {
+        font-size: 26px;
       }
 
       .footer-inner {
@@ -434,61 +576,103 @@
 
   <!-- Navbar -->
   <nav class="navbar" aria-label="Main navigation">
-    <a href="/" class="navbar-brand">
-      <img src="assets/images/goldenroots-logo.png" alt="Golden Roots logo" width="36" height="36">
-      <span>Golden Roots</span>
-    </a>
-    <ul class="navbar-links">
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="mailto:goldenroots.apps@gmail.com">Contact</a></li>
-    </ul>
+    <div class="navbar-inner">
+      <a href="/" class="navbar-brand">
+        <img src="assets/images/goldenroots-logo.png" alt="Golden Roots logo" width="32" height="32">
+        <span>Golden Roots</span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="mailto:goldenroots.apps@gmail.com">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Hero -->
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
-        <div class="logo">
-          <img src="assets/images/goldenroots-logo.png" alt="Golden Roots logo" width="100" height="100">
+        <div class="hero-badge">New — QR Scanner Pro+ now with Google Drive backup</div>
+        <h1>Apps that make <span class="highlight">everyday</span> easier</h1>
+        <p>We build simple, powerful mobile tools designed to save your time and just work.</p>
+        <div class="hero-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Download on Google Play">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+            Download on Google Play
+          </a>
+          <a href="#apps" class="btn btn-ghost">Learn more</a>
         </div>
-        <h1>Golden Roots</h1>
-        <p>Crafting simple, powerful mobile apps that make everyday tasks easier.</p>
       </div>
     </section>
 
-    <!-- Apps -->
-    <section class="section" id="apps">
-      <div class="section-header">
-        <p class="section-label">Our Apps</p>
-        <h2 class="section-title">Built with care, designed for you</h2>
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="features-header">
+        <p class="features-label">Why Golden Roots</p>
+        <h2 class="features-title">Built different, built better</h2>
       </div>
-
-      <!-- QR Scanner Pro+ -->
-      <article class="app-card">
-        <div class="app-icon">
-          <img src="assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ & Barcode app icon" width="88" height="88">
-        </div>
-        <div class="app-info">
-          <h3>QR Scanner Pro+ & Barcode</h3>
-          <p>Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.</p>
-          <div class="app-badges">
-            <span class="badge badge-android">Android</span>
-            <span class="badge badge-downloads">12K+ Downloads</span>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <div class="app-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Download QR Scanner Pro+ on Google Play">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
-              Google Play
-            </a>
-            <a href="apps/qrscannerpro/privacy.html" class="btn btn-secondary">Privacy Policy</a>
-          </div>
+          <h3>Lightning Fast</h3>
+          <p>Instant scanning with real-time detection. No loading, no waiting.</p>
         </div>
-      </article>
-
-      <!-- Coming Soon -->
-      <div class="coming-soon">
-        <p>More apps coming soon...</p>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Privacy First</h3>
+          <p>Your data stays on your device. No tracking, no external servers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8952c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18m-7-7l7 7 7-7"/></svg>
+          </div>
+          <h3>Cloud Backup</h3>
+          <p>Optional Google Drive backup. Your history, safely stored.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- App Showcase -->
+    <section class="showcase" id="apps">
+      <div class="showcase-inner">
+        <div class="showcase-header">
+          <p class="showcase-label">Our Apps</p>
+          <h2 class="showcase-title">Built with care, designed for you</h2>
+        </div>
+
+        <article class="app-card">
+          <div class="app-icon">
+            <img src="assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ & Barcode app icon" width="80" height="80">
+          </div>
+          <div class="app-info">
+            <h3>QR Scanner Pro+ & Barcode</h3>
+            <p>Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.</p>
+            <div class="app-badges">
+              <span class="badge badge-android">Android</span>
+              <span class="badge badge-downloads">12K+ Downloads</span>
+            </div>
+            <div class="app-actions">
+              <a href="https://play.google.com/store/apps/details?id=com.goldenroots.qrscannerpro" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Get QR Scanner Pro+ on Google Play">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                Google Play
+              </a>
+              <a href="apps/qrscannerpro/privacy.html" class="btn btn-ghost">Privacy Policy</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>More apps coming soon</h2>
+      <p>We're working on new tools to make your daily life simpler. Stay tuned.</p>
+      <a href="mailto:goldenroots.apps@gmail.com" class="btn btn-primary">Get in touch</a>
     </section>
   </main>
 
