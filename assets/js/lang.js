@@ -239,6 +239,8 @@ var LANGS = {
   }
 };
 
+var LANG_FLAGS = {en:'🇺🇸',th:'🇹🇭',ja:'🇯🇵',zh:'🇨🇳',ko:'🇰🇷',hi:'🇮🇳',es:'🇪🇸'};
+
 function setLang(lang) {
   var t = LANGS[lang];
   if (!t) return;
@@ -249,9 +251,33 @@ function setLang(lang) {
     var key = el.getAttribute('data-i18n');
     if (t[key]) el.innerHTML = t[key];
   });
-  var sel = document.getElementById('lang-select');
-  if (sel) sel.value = lang;
+  // Update custom dropdown button
+  var flagEl = document.getElementById('lang-flag');
+  var codeEl = document.getElementById('lang-code');
+  if (flagEl) flagEl.textContent = LANG_FLAGS[lang] || '';
+  if (codeEl) codeEl.textContent = lang.toUpperCase();
+  // Update active state in menu
+  document.querySelectorAll('.lang-option').forEach(function(el) {
+    el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+  });
 }
+
+function toggleLangMenu() {
+  var dd = document.getElementById('lang-dropdown');
+  if (dd) dd.classList.toggle('open');
+}
+
+function pickLang(lang) {
+  setLang(lang);
+  var dd = document.getElementById('lang-dropdown');
+  if (dd) dd.classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('lang-dropdown');
+  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
 
 (function() {
   var saved = localStorage.getItem('lang');
