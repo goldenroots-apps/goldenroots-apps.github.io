@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for QR Scanner Pro+ & Barcode by Golden Roots.">
   <title>Privacy Policy – QR Scanner Pro+ & Barcode</title>
+  <link rel="icon" href="../../assets/images/goldenroots-logo.png">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -13,462 +15,552 @@
 
     body {
       font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
+      background: #0a0f1a;
+      color: #cbd5e1;
       line-height: 1.7;
+      min-height: 100vh;
     }
 
-    header {
-      background: linear-gradient(135deg, #1a73e8, #0d47a1);
-      color: #fff;
-      padding: 48px 24px;
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px 24px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #f1f5f9;
+    }
+
+    .navbar-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .navbar-brand span {
+      font-size: 16px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #d4a837, #f0d060);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar-back {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar-back:hover {
+      color: #d4a837;
+    }
+
+    /* Header */
+    .page-header {
       text-align: center;
+      padding: 48px 24px 56px;
     }
 
-    header .app-icon {
+    .page-header .app-icon {
       width: 72px;
       height: 72px;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      margin: 0 auto 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     }
 
-    header .app-icon img {
+    .page-header .app-icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    header h1 {
+    .page-header h1 {
       font-size: 28px;
       font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    header p {
-      font-size: 14px;
-      opacity: 0.85;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: -32px auto 40px;
-      padding: 0 16px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      padding: 32px;
-      margin-bottom: 20px;
-    }
-
-    .card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1a73e8;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .card h2 .icon {
-      font-size: 22px;
-    }
-
-    .card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #444;
-      margin-top: 16px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      margin-bottom: 12px;
-      font-size: 15px;
-      color: #555;
-    }
-
-    .card ul {
-      margin: 8px 0 12px 20px;
-      font-size: 15px;
-      color: #555;
-    }
-
-    .card ul li {
+      color: #f1f5f9;
       margin-bottom: 6px;
     }
 
-    .card a {
-      color: #1a73e8;
+    .page-header .subtitle {
+      font-size: 15px;
+      color: #64748b;
+    }
+
+    .page-header .updated {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 12px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .section ul {
+      margin: 8px 0 16px 20px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .section ul li {
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+
+    .section a {
+      color: #d4a837;
       text-decoration: none;
     }
 
-    .card a:hover {
+    .section a:hover {
       text-decoration: underline;
     }
 
+    .section code {
+      background: #1e293b;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #e2e8f0;
+    }
+
+    /* Table */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0;
-      font-size: 14px;
-    }
-
-    table thead {
-      background: #f0f4ff;
-    }
-
-    table th, table td {
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid #e8e8e8;
+      margin: 16px 0;
+      font-size: 13px;
     }
 
     table th {
+      text-align: left;
+      padding: 10px 14px;
       font-weight: 600;
-      color: #333;
+      color: #e2e8f0;
+      background: #141c2e;
+      border-bottom: 1px solid #1e293b;
     }
 
     table td {
-      color: #555;
+      padding: 10px 14px;
+      color: #94a3b8;
+      border-bottom: 1px solid #141c2e;
+    }
+
+    table tr:last-child td {
+      border-bottom: none;
     }
 
     .badge {
       display: inline-block;
       padding: 2px 10px;
-      border-radius: 12px;
-      font-size: 12px;
+      border-radius: 10px;
+      font-size: 11px;
       font-weight: 600;
     }
 
     .badge-required {
-      background: #fce8e6;
-      color: #c5221f;
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.15);
     }
 
     .badge-optional {
-      background: #e6f4ea;
-      color: #137333;
+      background: rgba(52, 211, 153, 0.1);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.15);
     }
 
-    .updated {
-      text-align: center;
-      font-size: 13px;
-      color: #999;
-      margin-top: 8px;
+    /* Contact Button */
+    .contact-btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #d4a837, #b8942a);
+      color: #0a0f1a;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: box-shadow 0.3s, transform 0.3s;
     }
 
+    .contact-btn:hover {
+      box-shadow: 0 4px 20px rgba(212, 168, 55, 0.3);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 24px;
-      font-size: 13px;
-      color: #999;
-      border-top: 1px solid #e8e8e8;
-      margin-top: 20px;
+      padding: 32px 24px;
+      border-top: 1px solid #141c2e;
+      font-size: 12px;
+      color: #334155;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 36px 16px;
+    /* Responsive */
+    @media (max-width: 640px) {
+      .page-header {
+        padding: 32px 20px 40px;
       }
 
-      header h1 {
+      .page-header h1 {
         font-size: 22px;
       }
 
-      .card {
-        padding: 20px;
+      .section h2 {
+        font-size: 16px;
       }
 
       table {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       table th, table td {
         padding: 8px 10px;
       }
     }
+
+    /* Table responsive wrapper */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="app-icon"><img src="../../assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ Icon"></div>
-  <h1>QR Scanner Pro+ & Barcode</h1>
-  <p>Privacy Policy</p>
-</header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <img src="../../assets/images/goldenroots-logo.png" alt="Golden Roots">
+      <span>Golden Roots</span>
+    </a>
+    <a href="/" class="navbar-back">&larr; Back to Home</a>
+  </nav>
 
-<div class="container">
+  <!-- Header -->
+  <header class="page-header">
+    <div class="app-icon">
+      <img src="../../assets/images/qrscannerpro-icon.png" alt="QR Scanner Pro+ Icon">
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">QR Scanner Pro+ & Barcode</p>
+    <p class="updated">Last updated: March 30, 2026</p>
+  </header>
 
-  <p class="updated">Last updated: March 30, 2026</p>
+  <!-- Content -->
+  <div class="container">
 
-  <!-- Overview -->
-  <div class="card">
-    <h2><span class="icon">📋</span> Overview</h2>
-    <p>QR Scanner Pro+ & Barcode ("the App"), developed by Golden Roots, respects your privacy. This Privacy Policy explains what data the App accesses, how it is used, how it is shared, and your choices regarding your data.</p>
-    <p>By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+    <!-- Overview -->
+    <div class="section">
+      <h2>Overview</h2>
+      <p>QR Scanner Pro+ & Barcode ("the App"), developed by Golden Roots, respects your privacy. This Privacy Policy explains what data the App accesses, how it is used, how it is shared, and your choices regarding your data.</p>
+      <p>By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+    </div>
+
+    <!-- Permissions -->
+    <div class="section">
+      <h2>Permissions & Local Data</h2>
+
+      <h3>Camera Access</h3>
+      <p>The App uses your device's camera to scan QR codes and barcodes. All scan processing is performed locally on your device. No camera data is transmitted to any server or third party.</p>
+
+      <h3>Photo Library Access</h3>
+      <p>The App may access your photo library to scan QR codes from saved images. Selected images are processed entirely on your device and are never uploaded to any external server.</p>
+
+      <h3>Scan History</h3>
+      <p>Your scan history, including scanned content and optional thumbnail images, is stored locally on your device using an encrypted local database. This data never leaves your device unless you explicitly choose to back it up via Google Drive.</p>
+    </div>
+
+    <!-- Google Drive Backup -->
+    <div class="section">
+      <h2>Google Drive Backup</h2>
+      <p>The App offers an <strong>optional</strong> Google Drive backup feature. When you choose to use this feature:</p>
+      <ul>
+        <li>The App requests access to Google Drive's app-specific storage (<code>appDataFolder</code>) only.</li>
+        <li>Your scan history data is encrypted in transit (HTTPS/TLS) and stored in a private folder that only this App can access.</li>
+        <li>No other files on your Google Drive are accessed, read, or modified.</li>
+        <li>You can disconnect your Google account or delete the backup data at any time through the App's settings.</li>
+      </ul>
+    </div>
+
+    <!-- Google Sign-In -->
+    <div class="section">
+      <h2>Google Sign-In</h2>
+      <p>If you use the Google Drive backup feature, you will be asked to sign in with your Google account. The App accesses only the following information:</p>
+      <ul>
+        <li><strong>Email address</strong> — to display which account is connected</li>
+        <li><strong>Display name</strong> — to show your name in the settings screen</li>
+        <li><strong>Profile photo</strong> — to show your avatar in the settings screen</li>
+      </ul>
+      <p>This information is used only for display purposes within the App and is <strong>not stored on any external server</strong> or shared with any third party.</p>
+    </div>
+
+    <!-- Advertising -->
+    <div class="section">
+      <h2>Advertising</h2>
+      <p>The App displays advertisements using the following third-party advertising SDKs:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>SDK</th>
+              <th>Data Collected</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Google AdMob</strong></td>
+              <td>Device identifiers (Advertising ID), app interactions, diagnostics</td>
+              <td>Ad serving & personalization</td>
+            </tr>
+            <tr>
+              <td><strong>AppLovin</strong></td>
+              <td>Device identifiers (Advertising ID), app interactions, diagnostics</td>
+              <td>Ad mediation & personalization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>These SDKs may collect data automatically to serve relevant advertisements. You can opt out of personalized ads through your device's advertising settings:</p>
+      <ul>
+        <li><strong>Android:</strong> Settings &rarr; Privacy &rarr; Ads &rarr; Delete advertising ID</li>
+      </ul>
+      <p>For more information, see:
+        <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> |
+        <a href="https://www.applovin.com/privacy/" target="_blank">AppLovin Privacy Policy</a>
+      </p>
+    </div>
+
+    <!-- Analytics -->
+    <div class="section">
+      <h2>Analytics</h2>
+      <p>The App uses <strong>Firebase Analytics</strong> to collect anonymous usage statistics including:</p>
+      <ul>
+        <li>App opens and session duration</li>
+        <li>Feature usage patterns</li>
+        <li>Crash logs and error reports</li>
+        <li>App performance diagnostics</li>
+      </ul>
+      <p>This data is aggregated and <strong>cannot be used to identify individual users</strong>. It is used solely to improve the App's performance and user experience.</p>
+      <p>For more information, see: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></p>
+    </div>
+
+    <!-- Data Summary -->
+    <div class="section">
+      <h2>Data Collection Summary</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Collected</th>
+              <th>Shared</th>
+              <th>Required</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Email address</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td><span class="badge badge-optional">Optional</span></td>
+              <td>Google Drive backup</td>
+            </tr>
+            <tr>
+              <td>App interactions</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td><span class="badge badge-required">Auto</span></td>
+              <td>Analytics, Advertising</td>
+            </tr>
+            <tr>
+              <td>Crash logs</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td><span class="badge badge-required">Auto</span></td>
+              <td>Analytics</td>
+            </tr>
+            <tr>
+              <td>Diagnostics</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td><span class="badge badge-required">Auto</span></td>
+              <td>Analytics, Advertising</td>
+            </tr>
+            <tr>
+              <td>App performance</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td><span class="badge badge-required">Auto</span></td>
+              <td>Analytics</td>
+            </tr>
+            <tr>
+              <td>Device IDs</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td><span class="badge badge-required">Auto</span></td>
+              <td>Advertising, Analytics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>All collected data is <strong>encrypted in transit</strong> using HTTPS/TLS.</p>
+    </div>
+
+    <!-- Data Deletion -->
+    <div class="section">
+      <h2>Data Deletion</h2>
+      <p>You can request deletion of your data through the following methods:</p>
+
+      <h3>1. Delete Scan History (In-App)</h3>
+      <p>Open the App &rarr; go to the <strong>History</strong> tab &rarr; long press or swipe to delete individual items, or use <strong>"Delete All"</strong> to clear all scan history, favorites, and saved images.</p>
+
+      <h3>2. Delete Google Drive Backup</h3>
+      <p>Open the App &rarr; go to <strong>Settings</strong> &rarr; tap your connected Google account &rarr; tap <strong>"Disconnect"</strong> to revoke access. Then:</p>
+      <ul>
+        <li>Go to <a href="https://drive.google.com" target="_blank">Google Drive</a> &rarr; Settings &rarr; Manage Apps</li>
+        <li>Find <strong>"QR Scanner Pro+"</strong></li>
+        <li>Select <strong>"Delete hidden app data"</strong> to permanently remove all backup files</li>
+      </ul>
+
+      <h3>3. Delete All Local Data</h3>
+      <p>Uninstall the App from your device to remove all locally stored data, including scan history, favorites, images, and app settings.</p>
+
+      <h3>What Gets Deleted</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Method</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Scan history & favorites</td>
+              <td>In-app deletion or uninstall</td>
+              <td>Permanently deleted</td>
+            </tr>
+            <tr>
+              <td>Saved images</td>
+              <td>In-app deletion or uninstall</td>
+              <td>Permanently deleted</td>
+            </tr>
+            <tr>
+              <td>Google Drive backup</td>
+              <td>Disconnect + delete hidden app data</td>
+              <td>Permanently deleted</td>
+            </tr>
+            <tr>
+              <td>App settings & preferences</td>
+              <td>Uninstall</td>
+              <td>Permanently deleted</td>
+            </tr>
+            <tr>
+              <td>Third-party SDK data</td>
+              <td>Subject to SDK provider policies</td>
+              <td>See provider privacy policies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Important:</strong> We do not maintain any user data on our own servers. All data is stored locally on your device or in your personal Google Drive account.</p>
+    </div>
+
+    <!-- Data Security -->
+    <div class="section">
+      <h2>Data Security</h2>
+      <p>We take the security of your data seriously. The following measures are in place:</p>
+      <ul>
+        <li>All data transmitted between the App and external services is <strong>encrypted using HTTPS/TLS</strong></li>
+        <li>Scan history is stored in a <strong>local encrypted database</strong> on your device</li>
+        <li>Google Drive backup uses Google's secure infrastructure with <strong>app-specific isolated storage</strong></li>
+        <li>The App does not store any user data on external servers owned or operated by Golden Roots</li>
+      </ul>
+    </div>
+
+    <!-- No Account Required -->
+    <div class="section">
+      <h2>No Account Required</h2>
+      <p>The App is fully functional without creating an account or providing any personal information. Google Sign-In is <strong>only required</strong> for the optional Google Drive backup feature. You can use all scanning, history, and favorite features without signing in.</p>
+    </div>
+
+    <!-- Children's Privacy -->
+    <div class="section">
+      <h2>Children's Privacy</h2>
+      <p>This App is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe that your child has provided personal data through the App, please contact us so we can take appropriate action.</p>
+    </div>
+
+    <!-- Changes -->
+    <div class="section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in the App or applicable laws. Any changes will be reflected on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="section" style="text-align: center; padding-top: 16px;">
+      <h2 style="text-align: left;">Contact Us</h2>
+      <p style="text-align: left;">If you have any questions about this Privacy Policy, need assistance with data deletion, or have concerns about your privacy, please contact us at:</p>
+      <a href="mailto:goldenroots.apps@gmail.com" class="contact-btn">goldenroots.apps@gmail.com</a>
+    </div>
+
   </div>
 
-  <!-- Permissions -->
-  <div class="card">
-    <h2><span class="icon">🔐</span> Permissions & Local Data</h2>
-
-    <h3>Camera Access</h3>
-    <p>The App uses your device's camera to scan QR codes and barcodes. All scan processing is performed locally on your device. No camera data is transmitted to any server or third party.</p>
-
-    <h3>Photo Library Access</h3>
-    <p>The App may access your photo library to scan QR codes from saved images. Selected images are processed entirely on your device and are never uploaded to any external server.</p>
-
-    <h3>Scan History</h3>
-    <p>Your scan history, including scanned content and optional thumbnail images, is stored locally on your device using an encrypted local database. This data never leaves your device unless you explicitly choose to back it up via Google Drive.</p>
-  </div>
-
-  <!-- Google Drive Backup -->
-  <div class="card">
-    <h2><span class="icon">☁️</span> Google Drive Backup</h2>
-    <p>The App offers an <strong>optional</strong> Google Drive backup feature. When you choose to use this feature:</p>
-    <ul>
-      <li>The App requests access to Google Drive's app-specific storage (<code>appDataFolder</code>) only.</li>
-      <li>Your scan history data is encrypted in transit (HTTPS/TLS) and stored in a private folder that only this App can access.</li>
-      <li>No other files on your Google Drive are accessed, read, or modified.</li>
-      <li>You can disconnect your Google account or delete the backup data at any time through the App's settings.</li>
-    </ul>
-  </div>
-
-  <!-- Google Sign-In -->
-  <div class="card">
-    <h2><span class="icon">🔑</span> Google Sign-In</h2>
-    <p>If you use the Google Drive backup feature, you will be asked to sign in with your Google account. The App accesses only the following information:</p>
-    <ul>
-      <li><strong>Email address</strong> — to display which account is connected</li>
-      <li><strong>Display name</strong> — to show your name in the settings screen</li>
-      <li><strong>Profile photo</strong> — to show your avatar in the settings screen</li>
-    </ul>
-    <p>This information is used only for display purposes within the App and is <strong>not stored on any external server</strong> or shared with any third party.</p>
-  </div>
-
-  <!-- Advertising -->
-  <div class="card">
-    <h2><span class="icon">📢</span> Advertising</h2>
-    <p>The App displays advertisements using the following third-party advertising SDKs:</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>SDK</th>
-          <th>Data Collected</th>
-          <th>Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Google AdMob</strong></td>
-          <td>Device identifiers (Advertising ID), app interactions, diagnostics</td>
-          <td>Ad serving & personalization</td>
-        </tr>
-        <tr>
-          <td><strong>AppLovin</strong></td>
-          <td>Device identifiers (Advertising ID), app interactions, diagnostics</td>
-          <td>Ad mediation & personalization</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>These SDKs may collect data automatically to serve relevant advertisements. You can opt out of personalized ads through your device's advertising settings:</p>
-    <ul>
-      <li><strong>Android:</strong> Settings → Privacy → Ads → Delete advertising ID</li>
-    </ul>
-    <p>For more information, see:
-      <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> |
-      <a href="https://www.applovin.com/privacy/" target="_blank">AppLovin Privacy Policy</a>
-    </p>
-  </div>
-
-  <!-- Analytics -->
-  <div class="card">
-    <h2><span class="icon">📊</span> Analytics</h2>
-    <p>The App uses <strong>Firebase Analytics</strong> to collect anonymous usage statistics including:</p>
-    <ul>
-      <li>App opens and session duration</li>
-      <li>Feature usage patterns</li>
-      <li>Crash logs and error reports</li>
-      <li>App performance diagnostics</li>
-    </ul>
-    <p>This data is aggregated and <strong>cannot be used to identify individual users</strong>. It is used solely to improve the App's performance and user experience.</p>
-    <p>For more information, see: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></p>
-  </div>
-
-  <!-- Data Summary Table -->
-  <div class="card">
-    <h2><span class="icon">📦</span> Data Collection Summary</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Data Type</th>
-          <th>Collected</th>
-          <th>Shared</th>
-          <th>Required</th>
-          <th>Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Email address</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td><span class="badge badge-optional">Optional</span></td>
-          <td>Google Drive backup</td>
-        </tr>
-        <tr>
-          <td>App interactions</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td><span class="badge badge-required">Auto</span></td>
-          <td>Analytics, Advertising</td>
-        </tr>
-        <tr>
-          <td>Crash logs</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td><span class="badge badge-required">Auto</span></td>
-          <td>Analytics</td>
-        </tr>
-        <tr>
-          <td>Diagnostics</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td><span class="badge badge-required">Auto</span></td>
-          <td>Analytics, Advertising</td>
-        </tr>
-        <tr>
-          <td>App performance</td>
-          <td>Yes</td>
-          <td>No</td>
-          <td><span class="badge badge-required">Auto</span></td>
-          <td>Analytics</td>
-        </tr>
-        <tr>
-          <td>Device IDs</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td><span class="badge badge-required">Auto</span></td>
-          <td>Advertising, Analytics</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>All collected data is <strong>encrypted in transit</strong> using HTTPS/TLS.</p>
-  </div>
-
-  <!-- Data Deletion -->
-  <div class="card">
-    <h2><span class="icon">🗑️</span> Data Deletion</h2>
-    <p>You can request deletion of your data through the following methods:</p>
-
-    <h3>1. Delete Scan History (In-App)</h3>
-    <p>Open the App → go to the <strong>History</strong> tab → long press or swipe to delete individual items, or use <strong>"Delete All"</strong> to clear all scan history, favorites, and saved images.</p>
-
-    <h3>2. Delete Google Drive Backup</h3>
-    <p>Open the App → go to <strong>Settings</strong> → tap your connected Google account → tap <strong>"Disconnect"</strong> to revoke access. Then:</p>
-    <ul>
-      <li>Go to <a href="https://drive.google.com" target="_blank">Google Drive</a> → Settings → Manage Apps</li>
-      <li>Find <strong>"QR Scanner Pro+"</strong></li>
-      <li>Select <strong>"Delete hidden app data"</strong> to permanently remove all backup files</li>
-    </ul>
-
-    <h3>3. Delete All Local Data</h3>
-    <p>Uninstall the App from your device to remove all locally stored data, including scan history, favorites, images, and app settings.</p>
-
-    <h3>What Gets Deleted</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Method</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Scan history & favorites</td>
-          <td>In-app deletion or uninstall</td>
-          <td>Permanently deleted</td>
-        </tr>
-        <tr>
-          <td>Saved images</td>
-          <td>In-app deletion or uninstall</td>
-          <td>Permanently deleted</td>
-        </tr>
-        <tr>
-          <td>Google Drive backup</td>
-          <td>Disconnect + delete hidden app data</td>
-          <td>Permanently deleted</td>
-        </tr>
-        <tr>
-          <td>App settings & preferences</td>
-          <td>Uninstall</td>
-          <td>Permanently deleted</td>
-        </tr>
-        <tr>
-          <td>Third-party SDK data</td>
-          <td>Subject to SDK provider policies</td>
-          <td>See provider privacy policies</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Important:</strong> We do not maintain any user data on our own servers. All data is stored locally on your device or in your personal Google Drive account.</p>
-  </div>
-
-  <!-- Data Security -->
-  <div class="card">
-    <h2><span class="icon">🛡️</span> Data Security</h2>
-    <p>We take the security of your data seriously. The following measures are in place:</p>
-    <ul>
-      <li>All data transmitted between the App and external services is <strong>encrypted using HTTPS/TLS</strong></li>
-      <li>Scan history is stored in a <strong>local encrypted database</strong> on your device</li>
-      <li>Google Drive backup uses Google's secure infrastructure with <strong>app-specific isolated storage</strong></li>
-      <li>The App does not store any user data on external servers owned or operated by Golden Roots</li>
-    </ul>
-  </div>
-
-  <!-- No Account Required -->
-  <div class="card">
-    <h2><span class="icon">👤</span> No Account Required</h2>
-    <p>The App is fully functional without creating an account or providing any personal information. Google Sign-In is <strong>only required</strong> for the optional Google Drive backup feature. You can use all scanning, history, and favorite features without signing in.</p>
-  </div>
-
-  <!-- Children's Privacy -->
-  <div class="card">
-    <h2><span class="icon">👶</span> Children's Privacy</h2>
-    <p>This App is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe that your child has provided personal data through the App, please contact us so we can take appropriate action.</p>
-  </div>
-
-  <!-- Changes -->
-  <div class="card">
-    <h2><span class="icon">📝</span> Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time to reflect changes in the App or applicable laws. Any changes will be reflected on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
-  </div>
-
-  <!-- Contact -->
-  <div class="card">
-    <h2><span class="icon">📧</span> Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, need assistance with data deletion, or have concerns about your privacy, please contact us at:</p>
-    <p style="text-align: center; margin-top: 16px;">
-      <a href="mailto:goldenroots.apps@gmail.com" style="display: inline-block; padding: 12px 32px; background: #1a73e8; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none;">
-        goldenroots.apps@gmail.com
-      </a>
-    </p>
-  </div>
-
-</div>
-
-<footer>
-  &copy; 2026 Golden Roots. All rights reserved.
-</footer>
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Golden Roots. All rights reserved.
+  </footer>
 
 </body>
 </html>
