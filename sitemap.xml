@@ -29,4 +29,32 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://goldenroots.dev/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/about.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/about.html?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/about.html?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/about.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/about.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/about.html?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/about.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/about.html"/>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://goldenroots.dev/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/terms.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/terms.html?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/terms.html?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/terms.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/terms.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/terms.html?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/terms.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/terms.html"/>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
