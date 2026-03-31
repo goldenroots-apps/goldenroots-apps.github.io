@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://goldenroots.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/"/>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://goldenroots.dev/apps/qrscannerpro/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/apps/qrscannerpro/privacy.html"/>
     <lastmod>2026-03-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
