@@ -30,6 +30,20 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://goldenroots.dev/apps/cashdiary/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/apps/cashdiary/privacy.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/apps/cashdiary/privacy.html"/>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://goldenroots.dev/about.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/about.html?lang=en"/>
     <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/about.html?lang=th"/>
@@ -58,3 +72,4 @@
     <priority>0.5</priority>
   </url>
 </urlset>
+
