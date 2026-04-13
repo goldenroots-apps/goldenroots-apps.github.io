@@ -45,6 +45,14 @@
   </url>
   <url>
     <loc>https://goldenroots.dev/apps/miru/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/apps/miru/privacy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/apps/miru/privacy.html?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://goldenroots.dev/apps/miru/privacy.html?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://goldenroots.dev/apps/miru/privacy.html?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://goldenroots.dev/apps/miru/privacy.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://goldenroots.dev/apps/miru/privacy.html?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://goldenroots.dev/apps/miru/privacy.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/apps/miru/privacy.html"/>
     <lastmod>2026-04-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

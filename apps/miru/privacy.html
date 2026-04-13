@@ -16,6 +16,14 @@
   <meta name="theme-color" content="#f8f3ea">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://goldenroots.dev/apps/miru/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://goldenroots.dev/apps/miru/privacy.html?lang=en">
+  <link rel="alternate" hreflang="th" href="https://goldenroots.dev/apps/miru/privacy.html?lang=th">
+  <link rel="alternate" hreflang="ja" href="https://goldenroots.dev/apps/miru/privacy.html?lang=ja">
+  <link rel="alternate" hreflang="zh" href="https://goldenroots.dev/apps/miru/privacy.html?lang=zh">
+  <link rel="alternate" hreflang="ko" href="https://goldenroots.dev/apps/miru/privacy.html?lang=ko">
+  <link rel="alternate" hreflang="hi" href="https://goldenroots.dev/apps/miru/privacy.html?lang=hi">
+  <link rel="alternate" hreflang="es" href="https://goldenroots.dev/apps/miru/privacy.html?lang=es">
+  <link rel="alternate" hreflang="x-default" href="https://goldenroots.dev/apps/miru/privacy.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Privacy Policy - Miru">
   <meta property="og:description" content="Privacy Policy for Miru by Golden Roots. Learn what data is collected, how it is used, and how it is protected.">
@@ -49,6 +57,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
   <style>
     :root {
       --card-strong: rgba(255, 255, 255, 0.94);
@@ -160,6 +169,17 @@
       background: rgba(255,255,255,.9);
       transform: translateY(-1px);
     }
+    .lang-dropdown { position: relative; user-select: none; }
+    .lang-btn { display: flex; align-items: center; gap: 8px; font-family: inherit; font-size: 14px; font-weight: 800; color: #3d3628; background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; cursor: pointer; outline: 0; box-shadow: 0 12px 24px rgba(56,43,17,.08); transition: transform .18s, border-color .18s; }
+    .lang-btn:hover { transform: translateY(-1px); border-color: rgba(188,138,45,.3); }
+    .fi { border-radius: 2px; font-size: 16px; line-height: 1; }
+    .lang-btn .arrow { font-size: 10px; transition: transform .15s; }
+    .lang-dropdown.open .arrow { transform: rotate(180deg); }
+    .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 150px; overflow: hidden; background: rgba(255,255,255,.97); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 24px 48px rgba(33,25,10,.15); backdrop-filter: blur(18px); z-index: 100; }
+    .lang-dropdown.open .lang-menu { display: block; }
+    .lang-option { display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; color: #333; cursor: pointer; transition: background .12s, color .12s; }
+    .lang-option:hover { background: #fbf3e1; color: #111; }
+    .lang-option.active { background: linear-gradient(90deg, rgba(188,138,45,.12), rgba(215,201,255,.16)); color: #111; }
     .hero {
       max-width: var(--content);
       margin: 0 auto;
@@ -329,7 +349,23 @@
         <span>Golden Roots</span>
       </a>
       <div class="nav-right">
-        <a href="/" class="nav-back">&larr; Back to Home</a>
+        <a href="/" class="nav-back" data-i18n="miru_priv_back">&larr; Back to Home</a>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button type="button" class="lang-btn" onclick="toggleLangMenu()">
+            <span class="fi fi-us" id="lang-flag"></span>
+            <span id="lang-code">EN</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="lang-menu">
+            <div class="lang-option" data-lang="en" onclick='pickLang("en")'><span class="fi fi-us"></span> English</div>
+            <div class="lang-option" data-lang="th" onclick='pickLang("th")'><span class="fi fi-th"></span> ไทย</div>
+            <div class="lang-option" data-lang="ja" onclick='pickLang("ja")'><span class="fi fi-jp"></span> 日本語</div>
+            <div class="lang-option" data-lang="zh" onclick='pickLang("zh")'><span class="fi fi-cn"></span> 中文</div>
+            <div class="lang-option" data-lang="ko" onclick='pickLang("ko")'><span class="fi fi-kr"></span> 한국어</div>
+            <div class="lang-option" data-lang="hi" onclick='pickLang("hi")'><span class="fi fi-in"></span> हिन्दी</div>
+            <div class="lang-option" data-lang="es" onclick='pickLang("es")'><span class="fi fi-es"></span> Español</div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -340,87 +376,87 @@
         <div class="hero-icon">
           <img src="../../assets/images/goldenroots-logo.png" alt="Miru icon" width="88" height="88">
         </div>
-        <h1>Privacy Policy</h1>
-        <p class="subtitle">Miru</p>
-        <p class="updated">Last updated: April 13, 2026</p>
+        <h1 data-i18n="miru_priv_title">Privacy Policy</h1>
+        <p class="subtitle" data-i18n="miru_priv_subtitle">Miru</p>
+        <p class="updated" data-i18n="miru_priv_updated">Last updated: April 13, 2026</p>
       </div>
     </section>
 
     <section class="layout">
       <article class="panel anim">
-        <h2>Overview</h2>
-        <p>Golden Roots ("we", "us", "our") built Miru as a free, ad-supported app. This page explains how information is collected, used, and disclosed when you use Miru.</p>
+        <h2 data-i18n="miru_priv_overview_h">Overview</h2>
+        <p data-i18n="miru_priv_overview_p">Golden Roots ("we", "us", "our") built Miru as a free, ad-supported app. This page explains how information is collected, used, and disclosed when you use Miru.</p>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>1. Data We Collect</h2>
-        <h3>1.1 Data Stored Locally on Your Device</h3>
-        <p>All your personal habit data is stored <strong>locally on your device only</strong> and is <strong>never uploaded to our servers</strong>, including:</p>
+        <h2 data-i18n="miru_priv_collect_h">1. Data We Collect</h2>
+        <h3 data-i18n="miru_priv_local_h">1.1 Data Stored Locally on Your Device</h3>
+        <p data-i18n="miru_priv_local_p1">All your personal habit data is stored <strong>locally on your device only</strong> and is <strong>never uploaded to our servers</strong>, including:</p>
         <ul>
-          <li>Habit names, schedules, and completion logs</li>
-          <li>Task names, categories, and due dates</li>
-          <li>Focus session history</li>
-          <li>App settings and preferences such as theme and language</li>
-          <li>Achievement progress and XP or level data</li>
+          <li data-i18n="miru_priv_local_li1">Habit names, schedules, and completion logs</li>
+          <li data-i18n="miru_priv_local_li2">Task names, categories, and due dates</li>
+          <li data-i18n="miru_priv_local_li3">Focus session history</li>
+          <li data-i18n="miru_priv_local_li4">App settings and preferences such as theme and language</li>
+          <li data-i18n="miru_priv_local_li5">Achievement progress and XP or level data</li>
         </ul>
-        <p>This data is encrypted using AES-256 and stored via Hive and SQLite on your device.</p>
+        <p data-i18n="miru_priv_local_p2">This data is encrypted using AES-256 and stored via Hive and SQLite on your device.</p>
 
-        <h3>1.2 Data Collected by Third-Party Services</h3>
-        <p>Miru uses the following third-party services that may collect limited technical information:</p>
-        <p><strong>Firebase Analytics (Google)</strong></p>
+        <h3 data-i18n="miru_priv_tp_h">1.2 Data Collected by Third-Party Services</h3>
+        <p data-i18n="miru_priv_tp_p">Miru uses the following third-party services that may collect limited technical information:</p>
+        <p data-i18n="miru_priv_tp_analytics_h"><strong>Firebase Analytics (Google)</strong></p>
         <ul>
-          <li>Collects anonymous usage events such as habit creation, theme changes, and screen views</li>
-          <li>Does <strong>not</strong> collect habit names, task names, or user-generated content</li>
-          <li>May collect device information such as device model, OS version, and app version</li>
+          <li data-i18n="miru_priv_tp_analytics_li1">Collects anonymous usage events such as habit creation, theme changes, and screen views</li>
+          <li data-i18n="miru_priv_tp_analytics_li2">Does <strong>not</strong> collect habit names, task names, or user-generated content</li>
+          <li data-i18n="miru_priv_tp_analytics_li3">May collect device information such as device model, OS version, and app version</li>
         </ul>
-        <p><strong>Firebase Crashlytics (Google)</strong></p>
+        <p data-i18n="miru_priv_tp_crash_h"><strong>Firebase Crashlytics (Google)</strong></p>
         <ul>
-          <li>Collects crash reports and error logs to help fix bugs</li>
-          <li>May include device model, OS version, and stack traces</li>
-          <li>Does <strong>not</strong> collect personal information</li>
+          <li data-i18n="miru_priv_tp_crash_li1">Collects crash reports and error logs to help fix bugs</li>
+          <li data-i18n="miru_priv_tp_crash_li2">May include device model, OS version, and stack traces</li>
+          <li data-i18n="miru_priv_tp_crash_li3">Does <strong>not</strong> collect personal information</li>
         </ul>
-        <p><strong>Google AdMob</strong></p>
+        <p data-i18n="miru_priv_tp_ads_h"><strong>Google AdMob</strong></p>
         <ul>
-          <li>Displays banner, interstitial, and rewarded ads</li>
-          <li>May collect device identifiers such as Advertising ID for ad personalization</li>
-          <li>Is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
+          <li data-i18n="miru_priv_tp_ads_li1">Displays banner, interstitial, and rewarded ads</li>
+          <li data-i18n="miru_priv_tp_ads_li2">May collect device identifiers such as Advertising ID for ad personalization</li>
+          <li data-i18n="miru_priv_tp_ads_li3">Is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
         </ul>
       </article>
 
       <article class="panel anim">
-        <h2>2. Advertising</h2>
-        <p>Miru is a free, ad-supported app. We use Google AdMob to display advertisements. AdMob may use your Advertising ID to show personalized ads. You can opt out of personalized ads in your device settings:</p>
+        <h2 data-i18n="miru_priv_ads_h">2. Advertising</h2>
+        <p data-i18n="miru_priv_ads_p">Miru is a free, ad-supported app. We use Google AdMob to display advertisements. AdMob may use your Advertising ID to show personalized ads. You can opt out of personalized ads in your device settings:</p>
         <ul>
-          <li><strong>Android:</strong> Settings &rarr; Google &rarr; Ads &rarr; Opt out of Ads Personalization</li>
+          <li data-i18n="miru_priv_ads_optout"><strong>Android:</strong> Settings &rarr; Google &rarr; Ads &rarr; Opt out of Ads Personalization</li>
         </ul>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>Third-Party Services</h2>
+        <h2 data-i18n="miru_priv_services_h">Third-Party Services</h2>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Service</th>
-                <th>Data Collected</th>
-                <th>Purpose</th>
+                <th data-i18n="miru_priv_services_th1">Service</th>
+                <th data-i18n="miru_priv_services_th2">Data Collected</th>
+                <th data-i18n="miru_priv_services_th3">Purpose</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Firebase Analytics</strong></td>
-                <td>Anonymous usage events, device model, OS version, app version</td>
-                <td>Usage analysis and product improvement</td>
+                <td data-i18n="miru_priv_services_row1c1"><strong>Firebase Analytics</strong></td>
+                <td data-i18n="miru_priv_services_row1c2">Anonymous usage events, device model, OS version, app version</td>
+                <td data-i18n="miru_priv_services_row1c3">Usage analysis and product improvement</td>
               </tr>
               <tr>
-                <td><strong>Firebase Crashlytics</strong></td>
-                <td>Crash logs, error diagnostics, device details, stack traces</td>
-                <td>Bug fixing and app stability</td>
+                <td data-i18n="miru_priv_services_row2c1"><strong>Firebase Crashlytics</strong></td>
+                <td data-i18n="miru_priv_services_row2c2">Crash logs, error diagnostics, device details, stack traces</td>
+                <td data-i18n="miru_priv_services_row2c3">Bug fixing and app stability</td>
               </tr>
               <tr>
-                <td><strong>Google AdMob</strong></td>
-                <td>Advertising ID, app interactions, diagnostics</td>
-                <td>Ad serving and personalization</td>
+                <td data-i18n="miru_priv_services_row3c1"><strong>Google AdMob</strong></td>
+                <td data-i18n="miru_priv_services_row3c2">Advertising ID, app interactions, diagnostics</td>
+                <td data-i18n="miru_priv_services_row3c3">Ad serving and personalization</td>
               </tr>
             </tbody>
           </table>
@@ -428,130 +464,132 @@
       </article>
 
       <article class="panel anim">
-        <h2>3. Data We Do Not Collect</h2>
+        <h2 data-i18n="miru_priv_nocollect_h">3. Data We Do Not Collect</h2>
         <ul>
-          <li>We do <strong>not</strong> collect your name, email, phone number, or other personally identifiable information</li>
-          <li>We do <strong>not</strong> require account creation or sign-in</li>
-          <li>We do <strong>not</strong> upload your habit data, tasks, or notes to any server</li>
-          <li>We do <strong>not</strong> share or sell your data to third parties</li>
+          <li data-i18n="miru_priv_nocollect_li1">We do <strong>not</strong> collect your name, email, phone number, or other personally identifiable information</li>
+          <li data-i18n="miru_priv_nocollect_li2">We do <strong>not</strong> require account creation or sign-in</li>
+          <li data-i18n="miru_priv_nocollect_li3">We do <strong>not</strong> upload your habit data, tasks, or notes to any server</li>
+          <li data-i18n="miru_priv_nocollect_li4">We do <strong>not</strong> share or sell your data to third parties</li>
         </ul>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>Data Collection Summary</h2>
+        <h2 data-i18n="miru_priv_summary_h">Data Collection Summary</h2>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Data Type</th>
-                <th>Collected</th>
-                <th>Shared</th>
-                <th>Required</th>
-                <th>Purpose</th>
+                <th data-i18n="miru_priv_summary_th1">Data Type</th>
+                <th data-i18n="miru_priv_summary_th2">Collected</th>
+                <th data-i18n="miru_priv_summary_th3">Shared</th>
+                <th data-i18n="miru_priv_summary_th4">Required</th>
+                <th data-i18n="miru_priv_summary_th5">Purpose</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Habit, task, focus, and achievement data</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td><span class="badge badge-required">Core</span></td>
-                <td>App functionality</td>
+                <td data-i18n="miru_priv_summary_row1c1">Habit, task, focus, and achievement data</td>
+                <td data-i18n="miru_priv_summary_row1c2">Yes</td>
+                <td data-i18n="miru_priv_summary_row1c3">No</td>
+                <td><span class="badge badge-required" data-i18n="miru_priv_summary_row1c4">Core</span></td>
+                <td data-i18n="miru_priv_summary_row1c5">App functionality</td>
               </tr>
               <tr>
-                <td>Theme and language preferences</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td><span class="badge badge-required">Core</span></td>
-                <td>Personalized app experience</td>
+                <td data-i18n="miru_priv_summary_row2c1">Theme and language preferences</td>
+                <td data-i18n="miru_priv_summary_row2c2">Yes</td>
+                <td data-i18n="miru_priv_summary_row2c3">No</td>
+                <td><span class="badge badge-required" data-i18n="miru_priv_summary_row2c4">Core</span></td>
+                <td data-i18n="miru_priv_summary_row2c5">Personalized app experience</td>
               </tr>
               <tr>
-                <td>Anonymous usage events</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td><span class="badge badge-optional">Auto</span></td>
-                <td>Analytics</td>
+                <td data-i18n="miru_priv_summary_row3c1">Anonymous usage events</td>
+                <td data-i18n="miru_priv_summary_row3c2">Yes</td>
+                <td data-i18n="miru_priv_summary_row3c3">Yes</td>
+                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row3c4">Auto</span></td>
+                <td data-i18n="miru_priv_summary_row3c5">Analytics</td>
               </tr>
               <tr>
-                <td>Crash logs and diagnostics</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td><span class="badge badge-optional">Auto</span></td>
-                <td>Stability and debugging</td>
+                <td data-i18n="miru_priv_summary_row4c1">Crash logs and diagnostics</td>
+                <td data-i18n="miru_priv_summary_row4c2">Yes</td>
+                <td data-i18n="miru_priv_summary_row4c3">Yes</td>
+                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row4c4">Auto</span></td>
+                <td data-i18n="miru_priv_summary_row4c5">Stability and debugging</td>
               </tr>
               <tr>
-                <td>Advertising ID</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td><span class="badge badge-optional">Auto</span></td>
-                <td>Advertising</td>
+                <td data-i18n="miru_priv_summary_row5c1">Advertising ID</td>
+                <td data-i18n="miru_priv_summary_row5c2">Yes</td>
+                <td data-i18n="miru_priv_summary_row5c3">Yes</td>
+                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row5c4">Auto</span></td>
+                <td data-i18n="miru_priv_summary_row5c5">Advertising</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p>All core app data remains stored locally on your device and is never uploaded to Golden Roots servers.</p>
+        <p data-i18n="miru_priv_summary_p">All core app data remains stored locally on your device and is never uploaded to Golden Roots servers.</p>
       </article>
 
       <article class="panel anim">
-        <h2>4. Backup and Export</h2>
-        <p>Miru offers a local backup and export feature that saves your data as a JSON file on your device. This file stays on your device and is only shared if you explicitly choose to share it. We do not have access to your backup files.</p>
+        <h2 data-i18n="miru_priv_backup_h">4. Backup and Export</h2>
+        <p data-i18n="miru_priv_backup_p">Miru offers a local backup and export feature that saves your data as a JSON file on your device. This file stays on your device and is only shared if you explicitly choose to share it. We do not have access to your backup files.</p>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>5. Notifications</h2>
-        <p>Miru may send local notifications such as habit reminders and streak alerts. These are processed entirely on your device. No notification data is sent to any server.</p>
+        <h2 data-i18n="miru_priv_notifications_h">5. Notifications</h2>
+        <p data-i18n="miru_priv_notifications_p">Miru may send local notifications such as habit reminders and streak alerts. These are processed entirely on your device. No notification data is sent to any server.</p>
       </article>
 
       <article class="panel anim">
-        <h2>6. Data Deletion</h2>
-        <p>You can delete all your data at any time from within the app:</p>
+        <h2 data-i18n="miru_priv_delete_h">6. Data Deletion</h2>
+        <p data-i18n="miru_priv_delete_p1">You can delete all your data at any time from within the app:</p>
         <ul>
-          <li>Go to <strong>Profile &rarr; Delete All Data</strong></li>
-          <li>This permanently deletes all habits, tasks, logs, and settings from your device</li>
+          <li data-i18n="miru_priv_delete_li1">Go to <strong>Profile &rarr; Delete All Data</strong></li>
+          <li data-i18n="miru_priv_delete_li2">This permanently deletes all habits, tasks, logs, and settings from your device</li>
         </ul>
-        <p>You can also uninstall the app to remove all data.</p>
+        <p data-i18n="miru_priv_delete_p2">You can also uninstall the app to remove all data.</p>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>7. Children's Privacy</h2>
-        <p>Miru is not directed at children under 13. We do not knowingly collect information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us.</p>
+        <h2 data-i18n="miru_priv_children_h">7. Children's Privacy</h2>
+        <p data-i18n="miru_priv_children_p">Miru is not directed at children under 13. We do not knowingly collect information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us.</p>
       </article>
 
       <article class="panel anim">
-        <h2>8. Security</h2>
-        <p>We take reasonable measures to protect your data:</p>
+        <h2 data-i18n="miru_priv_security_h">8. Security</h2>
+        <p data-i18n="miru_priv_security_p">We take reasonable measures to protect your data:</p>
         <ul>
-          <li>All local data is encrypted with AES-256</li>
-          <li>Encryption keys are stored in Android Keystore via Flutter Secure Storage</li>
-          <li>All network communication uses HTTPS</li>
+          <li data-i18n="miru_priv_security_li1">All local data is encrypted with AES-256</li>
+          <li data-i18n="miru_priv_security_li2">Encryption keys are stored in Android Keystore via Flutter Secure Storage</li>
+          <li data-i18n="miru_priv_security_li3">All network communication uses HTTPS</li>
         </ul>
       </article>
 
       <article class="panel anim anim-delay-1">
-        <h2>9. Third-Party Service Links</h2>
+        <h2 data-i18n="miru_priv_links_h">9. Third-Party Service Links</h2>
         <ul>
-          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> for Analytics, Crashlytics, and AdMob</li>
-          <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a></li>
+          <li data-i18n="miru_priv_links_li1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> for Analytics, Crashlytics, and AdMob</li>
+          <li data-i18n="miru_priv_links_li2"><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a></li>
         </ul>
       </article>
 
       <article class="panel anim">
-        <h2>10. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+        <h2 data-i18n="miru_priv_changes_h">10. Changes to This Policy</h2>
+        <p data-i18n="miru_priv_changes_p">We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
       </article>
 
       <article class="panel contact-card anim">
-        <h2>11. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy, contact us at:</p>
+        <h2 data-i18n="miru_priv_contact_h">11. Contact Us</h2>
+        <p data-i18n="miru_priv_contact_p">If you have questions about this Privacy Policy, contact us at:</p>
         <a href="mailto:goldenroots.apps@gmail.com" class="contact-btn">goldenroots.apps@gmail.com</a>
       </article>
     </section>
   </main>
 
   <footer>
-    <div class="footer-inner">&copy; 2026 Golden Roots. All rights reserved.</div>
+    <div class="footer-inner" data-i18n="footer_copy">&copy; 2026 Golden Roots. All rights reserved.</div>
   </footer>
 
+  <script src="../../assets/js/lang.js"></script>
+  <script src="../../assets/js/miru-lang.js"></script>
   <script>
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
