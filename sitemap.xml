@@ -44,6 +44,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://goldenroots.dev/miru/privacy</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://goldenroots.dev/about.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://goldenroots.dev/about.html?lang=en"/>
     <xhtml:link rel="alternate" hreflang="th" href="https://goldenroots.dev/about.html?lang=th"/>
