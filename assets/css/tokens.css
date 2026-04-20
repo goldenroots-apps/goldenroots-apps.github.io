@@ -13,6 +13,30 @@
   --color-brand: #f0ae2c;
   --color-brand-deep: #b9780a;
 
+  --color-gold: #f0ae2c;
+  --color-gold-soft: #fef0d0;
+  --color-gold-deep: #b9780a;
+  --color-lavender: #7c5cff;
+  --color-lavender-soft: #ece5ff;
+  --color-lavender-deep: #4e2fda;
+  --color-mint: #3fbf97;
+  --color-mint-soft: #d7f5e9;
+  --color-mint-deep: #1f8a6a;
+  --color-coral: #ff6f61;
+  --color-coral-soft: #ffe3df;
+  --color-coral-deep: #d63c30;
+
+  --gradient-hero:
+    radial-gradient(60% 45% at 20% 25%, rgba(240, 174, 44, 0.28), transparent 60%),
+    radial-gradient(55% 50% at 80% 20%, rgba(124, 92, 255, 0.22), transparent 65%),
+    radial-gradient(50% 50% at 75% 75%, rgba(63, 191, 151, 0.18), transparent 70%),
+    radial-gradient(45% 40% at 10% 85%, rgba(255, 111, 97, 0.16), transparent 75%);
+  --gradient-gold: linear-gradient(135deg, #f0ae2c, #ff9f00);
+  --gradient-lavender: linear-gradient(135deg, #7c5cff, #b794ff);
+  --gradient-mint: linear-gradient(135deg, #3fbf97, #6fe1b8);
+  --gradient-coral: linear-gradient(135deg, #ff6f61, #ff9a8a);
+  --gradient-rainbow: linear-gradient(90deg, #f0ae2c, #ff6f61, #7c5cff, #3fbf97);
+
   --font-sans: "Inter", "Prompt", "Noto Sans JP", "Noto Sans SC", "Noto Sans KR", "Noto Sans Devanagari", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
@@ -98,6 +122,21 @@
   --color-accent-hover: #e4e4e7;
   --color-brand: #f5b83a;
   --color-brand-deep: #d99820;
+
+  --color-gold: #ffc246;
+  --color-gold-soft: rgba(240, 174, 44, 0.12);
+  --color-lavender: #a48bff;
+  --color-lavender-soft: rgba(124, 92, 255, 0.16);
+  --color-mint: #4fd4a8;
+  --color-mint-soft: rgba(63, 191, 151, 0.15);
+  --color-coral: #ff8577;
+  --color-coral-soft: rgba(255, 111, 97, 0.15);
+
+  --gradient-hero:
+    radial-gradient(60% 45% at 20% 25%, rgba(240, 174, 44, 0.22), transparent 60%),
+    radial-gradient(55% 50% at 80% 20%, rgba(124, 92, 255, 0.28), transparent 65%),
+    radial-gradient(50% 50% at 75% 75%, rgba(63, 191, 151, 0.18), transparent 70%),
+    radial-gradient(45% 40% at 10% 85%, rgba(255, 111, 97, 0.18), transparent 75%);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
