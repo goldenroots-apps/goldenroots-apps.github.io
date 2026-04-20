@@ -1,18 +1,22 @@
 {
   "name": "English",
   "dir": "ltr",
+
   "nav_features": "Features",
   "nav_apps": "Apps",
   "nav_contact": "Contact",
+
   "hero_brand_pill": "Golden Roots Mobile Studio",
   "hero_title": "Your shortcut to<br><em>everyday</em> tasks.",
   "hero_desc": "Simple, powerful mobile apps that save your time and just work.",
   "hero_trust": "Trusted by 12,000+ users across 24 languages",
+
   "btn_download": "Download on Google Play",
   "btn_learn": "Learn more",
   "btn_gplay": "Google Play",
   "btn_privacy": "Privacy Policy",
   "btn_contact": "Get in touch",
+
   "feat_tag": "Why Golden Roots",
   "feat_title_accent": "Built better.",
   "feat_1_title": "Lightning Fast",
@@ -27,21 +31,26 @@
   "feat_5_desc": "Beautiful in any light.",
   "feat_6_title": "Free Forever",
   "feat_6_desc": "No ads, no subscription.",
+
   "stat_downloads": "Downloads",
   "stat_apps": "Apps",
   "stat_languages": "Languages",
   "stat_privacy": "Privacy-first",
+
   "apps_tag": "Our Apps",
   "apps_title_accent": "for you.",
   "app_name": "QR Scanner Pro+ & Barcode",
   "app_desc": "Fast, reliable QR code and barcode scanner with history, favorites, Google Drive backup, and beautiful themes.",
   "app2_name": "CashDiary",
   "app2_desc": "A clean daily money tracker for logging income, expenses, balances, and personal notes with a privacy-first approach.",
+
   "badge_android": "Android",
   "badge_downloads": "12K+ Downloads",
   "badge_private": "Privacy First",
+
   "cta_title": "More apps coming soon.",
   "cta_desc": "We're building new tools to make your daily life simpler.",
+
   "footer_tagline": "Crafting simple, powerful mobile apps that make everyday tasks easier.",
   "footer_col_apps": "Apps",
   "footer_col_company": "Company",
@@ -52,5 +61,32 @@
   "footer_terms": "Terms of Service",
   "footer_privacy": "Privacy Policy",
   "footer_copy": "© 2026 Golden Roots. All rights reserved.",
-  "footer_made": "Made with care in Thailand."
+  "footer_made": "Made with care in Thailand.",
+
+  "about_back": "← Back to Home",
+  "about_title": "About Us",
+  "about_story_h": "Our Story",
+  "about_story_p1": "Golden Roots is a small, passionate team dedicated to creating mobile applications that simplify everyday tasks. Founded with the belief that technology should be accessible, intuitive, and respectful of user privacy.",
+  "about_story_p2": "We started with a simple idea: build apps that we ourselves would love to use - fast, reliable, and free from unnecessary complexity.",
+  "about_mission_h": "Our Mission",
+  "about_mission_p": "To craft simple, powerful mobile applications that save people time and make daily tasks effortless. We believe great software should work seamlessly, respect your privacy, and be available to everyone.",
+  "about_values_eyebrow": "What we stand for",
+  "about_values_h": "Our Values",
+  "about_val1_h": "Privacy First",
+  "about_val1_p": "Your data belongs to you. We design our apps so your information stays on your device. No tracking, no selling data, no external servers storing your personal information.",
+  "about_val2_h": "Simplicity",
+  "about_val2_p": "We believe the best apps are the ones that just work. No bloated features, no confusing interfaces - just clean, focused tools that do what you need.",
+  "about_val3_h": "Quality",
+  "about_val3_p": "Every feature is carefully tested and optimized for performance. We'd rather do fewer things exceptionally well than many things poorly.",
+  "about_val4_h": "Accessibility",
+  "about_val4_p": "Our apps support multiple languages and are designed to be used by everyone, regardless of technical expertise. Technology should break down barriers, not create them.",
+  "about_apps_h": "Our Apps",
+  "about_apps_p": "Tools designed to make your life simpler.",
+  "about_app1_h": "QR Scanner Pro+ & Barcode",
+  "about_app1_p": "Our flagship app - a fast, reliable QR code and barcode scanner with scan history, favorites, optional Google Drive backup, and beautiful themes. Available on Google Play with 12,000+ downloads.",
+  "about_app2_h": "CashDiary",
+  "about_app2_p": "A simple personal finance companion for tracking daily income and expenses in a clean, focused interface. Built for people who want a lightweight record of their money without unnecessary complexity.",
+  "about_apps_more": "More apps are coming soon. We're always working on new tools to make your daily life simpler.",
+  "about_contact_h": "Contact Us",
+  "about_contact_p": "Have questions, feedback, or just want to say hello? We'd love to hear from you."
 }
