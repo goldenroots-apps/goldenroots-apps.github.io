@@ -12,8 +12,7 @@
   </script>
   <meta name="description" content="Golden Roots - Crafting simple, powerful mobile apps that make everyday tasks easier. Download QR Scanner Pro+ on Google Play.">
   <meta name="author" content="Golden Roots">
-  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0a0a0a">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://goldenroots.dev/">
   <link rel="alternate" hreflang="en" href="https://goldenroots.dev/?lang=en">
@@ -113,9 +112,10 @@
     (function () {
       try {
         var s = localStorage.getItem("theme");
-        var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-theme", (s === "light" || s === "dark") ? s : (d ? "dark" : "light"));
-      } catch (e) {}
+        document.documentElement.setAttribute("data-theme", s === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
