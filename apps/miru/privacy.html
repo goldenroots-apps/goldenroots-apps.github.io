@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
   <title>Privacy Policy - Miru</title>
   <meta name="description" content="Privacy Policy for Miru by Golden Roots. Learn what data stays on your device, what third-party services are used, and how your privacy is protected.">
   <meta name="author" content="Golden Roots">
-  <meta name="theme-color" content="#f8f3ea">
+  <meta name="theme-color" content="#0a0a0a">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://goldenroots.dev/apps/miru/privacy.html">
   <link rel="alternate" hreflang="en" href="https://goldenroots.dev/apps/miru/privacy.html?lang=en">
@@ -42,564 +42,358 @@
       "name": "Privacy Policy - Miru",
       "url": "https://goldenroots.dev/apps/miru/privacy.html",
       "description": "Privacy Policy for Miru by Golden Roots.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Golden Roots",
-        "url": "https://goldenroots.dev"
-      },
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Golden Roots",
-        "url": "https://goldenroots.dev"
-      }
+      "publisher": { "@type": "Organization", "name": "Golden Roots", "url": "https://goldenroots.dev" },
+      "isPartOf": { "@type": "WebSite", "name": "Golden Roots", "url": "https://goldenroots.dev" }
     }
+  </script>
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("theme");
+        document.documentElement.setAttribute("data-theme", s === "light" ? "light" : "dark");
+      } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }
+    })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
-  <style>
-    :root {
-      --card-strong: rgba(255, 255, 255, 0.94);
-      --text: #191611;
-      --muted: #6f6657;
-      --line: rgba(78, 58, 21, 0.1);
-      --shadow: 0 28px 70px rgba(82, 59, 15, 0.14);
-      --shadow-soft: 0 16px 34px rgba(82, 59, 15, 0.09);
-      --container: 1180px;
-      --content: 980px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Prompt, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(240, 174, 44, 0.34), transparent 26%),
-        radial-gradient(circle at top right, rgba(124, 92, 255, 0.18), transparent 24%),
-        radial-gradient(circle at 80% 35%, rgba(157, 242, 216, 0.2), transparent 22%),
-        linear-gradient(180deg, #fffdf8 0%, #fff6e8 42%, #f8f1e7 100%);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    body::before, body::after {
-      content: "";
-      position: fixed;
-      z-index: -1;
-      border-radius: 999px;
-      filter: blur(12px);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-    body::before {
-      width: 320px;
-      height: 320px;
-      top: 96px;
-      right: -100px;
-      background: radial-gradient(circle, rgba(240, 174, 44, 0.22), transparent 68%);
-    }
-    body::after {
-      width: 280px;
-      height: 280px;
-      left: -90px;
-      bottom: 140px;
-      background: radial-gradient(circle, rgba(124, 92, 255, 0.18), transparent 70%);
-    }
-    a { color: inherit; }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 16px 24px 0;
-      background: linear-gradient(180deg, rgba(250,245,235,.92), rgba(250,245,235,0));
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .nav-inner {
-      max-width: var(--container);
-      margin: 0 auto;
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,251,243,.72);
-      box-shadow: var(--shadow-soft);
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-    }
-    .nav-brand img {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      box-shadow: 0 14px 24px rgba(188,138,45,.18);
-    }
-    .nav-brand span {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav-back {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: transform .18s, background .18s, color .18s;
-    }
-    .nav-back:hover {
-      color: var(--text);
-      background: rgba(255,255,255,.9);
-      transform: translateY(-1px);
-    }
-    .lang-dropdown { position: relative; user-select: none; }
-    .lang-btn { display: flex; align-items: center; gap: 8px; font-family: inherit; font-size: 14px; font-weight: 800; color: #3d3628; background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; cursor: pointer; outline: 0; box-shadow: 0 12px 24px rgba(56,43,17,.08); transition: transform .18s, border-color .18s; }
-    .lang-btn:hover { transform: translateY(-1px); border-color: rgba(188,138,45,.3); }
-    .fi { border-radius: 2px; font-size: 16px; line-height: 1; }
-    .lang-btn .arrow { font-size: 10px; transition: transform .15s; }
-    .lang-dropdown.open .arrow { transform: rotate(180deg); }
-    .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 150px; overflow: hidden; background: rgba(255,255,255,.97); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 24px 48px rgba(33,25,10,.15); backdrop-filter: blur(18px); z-index: 100; }
-    .lang-dropdown.open .lang-menu { display: block; }
-    .lang-option { display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-size: 15px; font-weight: 600; color: #333; cursor: pointer; transition: background .12s, color .12s; }
-    .lang-option:hover { background: #fbf3e1; color: #111; }
-    .lang-option.active { background: linear-gradient(90deg, rgba(188,138,45,.12), rgba(215,201,255,.16)); color: #111; }
-    .hero {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 42px 24px 30px;
-    }
-    .hero-shell {
-      position: relative;
-      overflow: hidden;
-      border-radius: 38px;
-      border: 1px solid rgba(78,58,21,.08);
-      background:
-        radial-gradient(circle at 16% 18%, rgba(255,180,42,.22), transparent 18%),
-        radial-gradient(circle at 84% 20%, rgba(124,92,255,.18), transparent 18%),
-        radial-gradient(circle at 50% 100%, rgba(157,242,216,.16), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,238,.96) 58%, rgba(248,241,255,.92));
-      box-shadow: var(--shadow);
-      padding: 50px 40px 40px;
-      text-align: center;
-    }
-    .hero-icon { width: 96px; height: 96px; border-radius: 28px; overflow: hidden; margin: 0 auto 24px; box-shadow: 0 24px 42px rgba(56,43,17,.16); background: rgba(255,255,255,.92); position: relative; z-index: 1; }
-    .hero-icon img { width: 100%; height: 100%; object-fit: cover; }
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 68px);
-      font-weight: 900;
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-      margin: 0 auto 12px;
-      max-width: 10ch;
-    }
-    .hero .subtitle {
-      font-size: 17px;
-      color: var(--muted);
-      line-height: 1.9;
-      max-width: 52ch;
-      margin: 0 auto 10px;
-    }
-    .hero .updated {
-      font-size: 13px;
-      color: #9c927f;
-      letter-spacing: 0.01em;
-    }
-    .layout {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 0 24px 72px;
-      display: grid;
-      gap: 22px;
-    }
-    .panel {
-      position: relative;
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      background: var(--card-strong);
-      box-shadow: var(--shadow-soft);
-      padding: 32px;
-      overflow: hidden;
-    }
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: auto -40px -60px auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(240,174,44,.12), transparent 70%);
-      pointer-events: none;
-    }
-    .panel h2 {
-      font-size: 24px;
-      line-height: 1.12;
-      letter-spacing: -0.04em;
-      margin: 0 0 14px;
-      position: relative;
-      z-index: 1;
-    }
-    .panel h3 {
-      font-size: 15px;
-      font-weight: 800;
-      margin: 22px 0 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .panel p, .panel li {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.9;
-      position: relative;
-      z-index: 1;
-    }
-    .panel p { margin: 0 0 12px; }
-    .panel p:last-child { margin-bottom: 0; }
-    .panel ul { margin: 12px 0 0 20px; padding: 0; }
-    .panel strong { color: #3b3122; }
-    .panel a { color: #6d52ff; text-decoration: none; }
-    .panel a:hover { text-decoration: underline; }
-    .table-wrap { position: relative; z-index: 1; overflow-x: auto; margin-top: 12px; }
-    table { width: 100%; min-width: 620px; border-collapse: collapse; }
-    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(78,58,21,.08); font-size: 15px; color: var(--muted); line-height: 1.9; position: relative; z-index: 1; }
-    th { color: #3b3122; background: rgba(248,241,255,.8); font-weight: 800; }
-    .badge { display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; }
-    .badge-required { color: #9a3412; background: #fff1ea; }
-    .badge-optional { color: #0f766e; background: #ecfdf5; }
-    .contact-card {
-      text-align: center;
-      padding: 40px 32px;
-    }
-    .contact-card p {
-      max-width: 46ch;
-      margin: 0 auto 22px;
-    }
-    .contact-btn, .contact-btn:visited {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      color: #fff !important;
-      background: linear-gradient(135deg, #ffb42a, #ff8d63 46%, #7c5cff);
-      box-shadow: 0 18px 34px rgba(124,92,255,.18);
-      transition: transform .18s, box-shadow .18s;
-    }
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 40px rgba(124,92,255,.24);
-    }
-    footer { padding: 0 24px 28px; }
-    .footer-inner {
-      max-width: var(--content);
-      margin: 0 auto;
-      text-align: center;
-      color: #9c927f;
-      font-size: 12px;
-      padding: 18px 0 0;
-    }
-    .anim {
-      opacity: 0;
-      transform: translateY(22px) scale(.985);
-      transition: opacity .72s cubic-bezier(.22,1,.36,1), transform .72s cubic-bezier(.22,1,.36,1);
-    }
-    .anim.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .anim-delay-1 { transition-delay: .1s; }
-    @media (max-width: 720px) {
-      .nav { padding: 12px 16px 0; }
-      .nav-inner { border-radius: 28px; }
-      .hero { padding: 28px 16px 22px; }
-      .hero-shell { padding: 34px 22px 30px; border-radius: 28px; }
-      .hero h1 { max-width: none; }
-      .hero .subtitle { font-size: 16px; }
-      .layout { padding: 0 16px 44px; gap: 18px; }
-      .panel { padding: 24px; border-radius: 24px; }
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
 </head>
 <body>
-  <nav class="nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-brand">
-        <img src="../../assets/images/goldenroots-logo.png" alt="Golden Roots logo" width="38" height="38" fetchpriority="high" decoding="async">
+  <a href="#main" class="visually-hidden">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="/" class="brand">
+        <img src="../../assets/images/goldenroots-logo.png" alt="" width="28" height="28" fetchpriority="high" decoding="async">
         <span>Golden Roots</span>
       </a>
-      <div class="nav-right">
-        <a href="/" class="nav-back" data-i18n="miru_priv_back">&larr; Back to Home</a>
+      <ul class="primary-nav">
+        <li><a href="/#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="/#apps" data-i18n="nav_apps">Apps</a></li>
+        <li><a href="mailto:goldenroots.apps@gmail.com" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <div class="nav-tools">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
         <div class="lang-dropdown" id="lang-dropdown">
-          <button type="button" class="lang-btn" onclick="toggleLangMenu()">
+          <button type="button" class="lang-btn" onclick="toggleLangMenu()" aria-label="Change language" aria-haspopup="true">
             <span class="fi fi-us" id="lang-flag"></span>
             <span id="lang-code">EN</span>
-            <span class="arrow">▼</span>
+            <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="lang-menu">
-            <div class="lang-option" data-lang="en" onclick='pickLang("en")'><span class="fi fi-us"></span> English</div>
-            <div class="lang-option" data-lang="th" onclick='pickLang("th")'><span class="fi fi-th"></span> ไทย</div>
-            <div class="lang-option" data-lang="ja" onclick='pickLang("ja")'><span class="fi fi-jp"></span> 日本語</div>
-            <div class="lang-option" data-lang="zh" onclick='pickLang("zh")'><span class="fi fi-cn"></span> 中文</div>
-            <div class="lang-option" data-lang="ko" onclick='pickLang("ko")'><span class="fi fi-kr"></span> 한국어</div>
-            <div class="lang-option" data-lang="hi" onclick='pickLang("hi")'><span class="fi fi-in"></span> हिन्दी</div>
-            <div class="lang-option" data-lang="es" onclick='pickLang("es")'><span class="fi fi-es"></span> Español</div>
+          <div class="lang-menu lang-menu--scroll" role="menu">
+            <div class="lang-option" data-lang="en" onclick='pickLang("en")' role="menuitem"><span class="fi fi-us"></span> English</div>
+            <div class="lang-option" data-lang="ar" onclick='pickLang("ar")' role="menuitem"><span class="fi fi-sa"></span> العربية</div>
+            <div class="lang-option" data-lang="bn" onclick='pickLang("bn")' role="menuitem"><span class="fi fi-bd"></span> বাংলা</div>
+            <div class="lang-option" data-lang="de" onclick='pickLang("de")' role="menuitem"><span class="fi fi-de"></span> Deutsch</div>
+            <div class="lang-option" data-lang="es" onclick='pickLang("es")' role="menuitem"><span class="fi fi-es"></span> Español</div>
+            <div class="lang-option" data-lang="fa" onclick='pickLang("fa")' role="menuitem"><span class="fi fi-ir"></span> فارسی</div>
+            <div class="lang-option" data-lang="fil" onclick='pickLang("fil")' role="menuitem"><span class="fi fi-ph"></span> Filipino</div>
+            <div class="lang-option" data-lang="fr" onclick='pickLang("fr")' role="menuitem"><span class="fi fi-fr"></span> Français</div>
+            <div class="lang-option" data-lang="hi" onclick='pickLang("hi")' role="menuitem"><span class="fi fi-in"></span> हिन्दी</div>
+            <div class="lang-option" data-lang="id" onclick='pickLang("id")' role="menuitem"><span class="fi fi-id"></span> Indonesia</div>
+            <div class="lang-option" data-lang="it" onclick='pickLang("it")' role="menuitem"><span class="fi fi-it"></span> Italiano</div>
+            <div class="lang-option" data-lang="ja" onclick='pickLang("ja")' role="menuitem"><span class="fi fi-jp"></span> 日本語</div>
+            <div class="lang-option" data-lang="ko" onclick='pickLang("ko")' role="menuitem"><span class="fi fi-kr"></span> 한국어</div>
+            <div class="lang-option" data-lang="lo" onclick='pickLang("lo")' role="menuitem"><span class="fi fi-la"></span> ລາວ</div>
+            <div class="lang-option" data-lang="ms" onclick='pickLang("ms")' role="menuitem"><span class="fi fi-my"></span> Bahasa Melayu</div>
+            <div class="lang-option" data-lang="my" onclick='pickLang("my")' role="menuitem"><span class="fi fi-mm"></span> မြန်မာ</div>
+            <div class="lang-option" data-lang="nl" onclick='pickLang("nl")' role="menuitem"><span class="fi fi-nl"></span> Nederlands</div>
+            <div class="lang-option" data-lang="pt" onclick='pickLang("pt")' role="menuitem"><span class="fi fi-pt"></span> Português</div>
+            <div class="lang-option" data-lang="ru" onclick='pickLang("ru")' role="menuitem"><span class="fi fi-ru"></span> Русский</div>
+            <div class="lang-option" data-lang="th" onclick='pickLang("th")' role="menuitem"><span class="fi fi-th"></span> ไทย</div>
+            <div class="lang-option" data-lang="tr" onclick='pickLang("tr")' role="menuitem"><span class="fi fi-tr"></span> Türkçe</div>
+            <div class="lang-option" data-lang="ur" onclick='pickLang("ur")' role="menuitem"><span class="fi fi-pk"></span> اردو</div>
+            <div class="lang-option" data-lang="vi" onclick='pickLang("vi")' role="menuitem"><span class="fi fi-vn"></span> Tiếng Việt</div>
+            <div class="lang-option" data-lang="zh" onclick='pickLang("zh")' role="menuitem"><span class="fi fi-cn"></span> 中文</div>
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-shell anim">
-        <div class="hero-icon">
-          <img src="../../assets/images/goldenroots-logo.png" alt="Miru icon" width="88" height="88" decoding="async">
+  <main id="main">
+    <section class="page-hero page-hero--lavender">
+      <div class="container">
+        <a href="/" class="back-link" data-i18n="miru_priv_back">&larr; Back to Home</a>
+        <div class="page-hero__icon">
+          <img src="../../assets/images/goldenroots-logo.png" alt="Miru icon" width="52" height="52" decoding="async">
         </div>
-        <h1 data-i18n="miru_priv_title">Privacy Policy</h1>
-        <p class="subtitle" data-i18n="miru_priv_subtitle">Miru</p>
-        <p class="updated" data-i18n="miru_priv_updated">Last updated: April 13, 2026</p>
+        <p class="eyebrow">Privacy Policy</p>
+        <h1 class="page-hero__title" data-i18n="miru_priv_title">Miru <span class="accent">Privacy</span></h1>
+        <p class="page-hero__lead" data-i18n="miru_priv_subtitle">Miru</p>
+        <span class="page-hero__meta" data-i18n="miru_priv_updated">Last updated: April 13, 2026</span>
       </div>
     </section>
 
-    <section class="layout">
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_overview_h">Overview</h2>
-        <p data-i18n="miru_priv_overview_p">Golden Roots ("we", "us", "our") built Miru as a free, ad-supported app. This page explains how information is collected, used, and disclosed when you use Miru.</p>
-      </article>
+    <section class="section">
+      <div class="container legal-layout">
+        <aside class="legal-toc">
+          <nav aria-label="Table of contents">
+            <h4>On this page</h4>
+            <ol>
+              <li><a href="#overview">Overview</a></li>
+              <li><a href="#collect">Data We Collect</a></li>
+              <li><a href="#ads">Advertising</a></li>
+              <li><a href="#services">Third-Party</a></li>
+              <li><a href="#nocollect">Not Collected</a></li>
+              <li><a href="#summary">Data Summary</a></li>
+              <li><a href="#backup">Backup &amp; Export</a></li>
+              <li><a href="#notifications">Notifications</a></li>
+              <li><a href="#deletion">Deletion</a></li>
+              <li><a href="#children">Children</a></li>
+              <li><a href="#security">Security</a></li>
+              <li><a href="#links">Service Links</a></li>
+              <li><a href="#changes">Changes</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ol>
+          </nav>
+        </aside>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_collect_h">1. Data We Collect</h2>
-        <h3 data-i18n="miru_priv_local_h">1.1 Data Stored Locally on Your Device</h3>
-        <p data-i18n="miru_priv_local_p1">All your personal habit data is stored <strong>locally on your device only</strong> and is <strong>never uploaded to our servers</strong>, including:</p>
-        <ul>
-          <li data-i18n="miru_priv_local_li1">Habit names, schedules, and completion logs</li>
-          <li data-i18n="miru_priv_local_li2">Task names, categories, and due dates</li>
-          <li data-i18n="miru_priv_local_li3">Focus session history</li>
-          <li data-i18n="miru_priv_local_li4">App settings and preferences such as theme and language</li>
-          <li data-i18n="miru_priv_local_li5">Achievement progress and XP or level data</li>
-        </ul>
-        <p data-i18n="miru_priv_local_p2">This data is encrypted using AES-256 and stored via Hive and SQLite on your device.</p>
+        <article class="legal-prose">
+          <section id="overview">
+            <h2 data-i18n="miru_priv_overview_h">Overview</h2>
+            <p data-i18n="miru_priv_overview_p">Golden Roots ("we", "us", "our") built Miru as a free, ad-supported app. This page explains how information is collected, used, and disclosed when you use Miru.</p>
+          </section>
 
-        <h3 data-i18n="miru_priv_tp_h">1.2 Data Collected by Third-Party Services</h3>
-        <p data-i18n="miru_priv_tp_p">Miru uses the following third-party services that may collect limited technical information:</p>
-        <p data-i18n="miru_priv_tp_analytics_h"><strong>Firebase Analytics (Google)</strong></p>
-        <ul>
-          <li data-i18n="miru_priv_tp_analytics_li1">Collects anonymous usage events such as habit creation, theme changes, and screen views</li>
-          <li data-i18n="miru_priv_tp_analytics_li2">Does <strong>not</strong> collect habit names, task names, or user-generated content</li>
-          <li data-i18n="miru_priv_tp_analytics_li3">May collect device information such as device model, OS version, and app version</li>
-        </ul>
-        <p data-i18n="miru_priv_tp_crash_h"><strong>Firebase Crashlytics (Google)</strong></p>
-        <ul>
-          <li data-i18n="miru_priv_tp_crash_li1">Collects crash reports and error logs to help fix bugs</li>
-          <li data-i18n="miru_priv_tp_crash_li2">May include device model, OS version, and stack traces</li>
-          <li data-i18n="miru_priv_tp_crash_li3">Does <strong>not</strong> collect personal information</li>
-        </ul>
-        <p data-i18n="miru_priv_tp_ads_h"><strong>Google AdMob</strong></p>
-        <ul>
-          <li data-i18n="miru_priv_tp_ads_li1">Displays banner, interstitial, and rewarded ads</li>
-          <li data-i18n="miru_priv_tp_ads_li2">May collect device identifiers such as Advertising ID for ad personalization</li>
-          <li data-i18n="miru_priv_tp_ads_li3">Is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
-        </ul>
-      </article>
+          <section id="collect">
+            <h2 data-i18n="miru_priv_collect_h">1. Data We Collect</h2>
+            <h3 data-i18n="miru_priv_local_h">1.1 Data Stored Locally on Your Device</h3>
+            <p data-i18n="miru_priv_local_p1">All your personal habit data is stored <strong>locally on your device only</strong> and is <strong>never uploaded to our servers</strong>, including:</p>
+            <ul>
+              <li data-i18n="miru_priv_local_li1">Habit names, schedules, and completion logs</li>
+              <li data-i18n="miru_priv_local_li2">Task names, categories, and due dates</li>
+              <li data-i18n="miru_priv_local_li3">Focus session history</li>
+              <li data-i18n="miru_priv_local_li4">App settings and preferences such as theme and language</li>
+              <li data-i18n="miru_priv_local_li5">Achievement progress and XP or level data</li>
+            </ul>
+            <p data-i18n="miru_priv_local_p2">This data is encrypted using AES-256 and stored via Hive and SQLite on your device.</p>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_ads_h">2. Advertising</h2>
-        <p data-i18n="miru_priv_ads_p">Miru is a free, ad-supported app. We use Google AdMob to display advertisements. AdMob may use your Advertising ID to show personalized ads. You can opt out of personalized ads in your device settings:</p>
-        <ul>
-          <li data-i18n="miru_priv_ads_optout"><strong>Android:</strong> Settings &rarr; Google &rarr; Ads &rarr; Opt out of Ads Personalization</li>
-        </ul>
-      </article>
+            <h3 data-i18n="miru_priv_tp_h">1.2 Data Collected by Third-Party Services</h3>
+            <p data-i18n="miru_priv_tp_p">Miru uses the following third-party services that may collect limited technical information:</p>
+            <p data-i18n="miru_priv_tp_analytics_h"><strong>Firebase Analytics (Google)</strong></p>
+            <ul>
+              <li data-i18n="miru_priv_tp_analytics_li1">Collects anonymous usage events such as habit creation, theme changes, and screen views</li>
+              <li data-i18n="miru_priv_tp_analytics_li2">Does <strong>not</strong> collect habit names, task names, or user-generated content</li>
+              <li data-i18n="miru_priv_tp_analytics_li3">May collect device information such as device model, OS version, and app version</li>
+            </ul>
+            <p data-i18n="miru_priv_tp_crash_h"><strong>Firebase Crashlytics (Google)</strong></p>
+            <ul>
+              <li data-i18n="miru_priv_tp_crash_li1">Collects crash reports and error logs to help fix bugs</li>
+              <li data-i18n="miru_priv_tp_crash_li2">May include device model, OS version, and stack traces</li>
+              <li data-i18n="miru_priv_tp_crash_li3">Does <strong>not</strong> collect personal information</li>
+            </ul>
+            <p data-i18n="miru_priv_tp_ads_h"><strong>Google AdMob</strong></p>
+            <ul>
+              <li data-i18n="miru_priv_tp_ads_li1">Displays banner, interstitial, and rewarded ads</li>
+              <li data-i18n="miru_priv_tp_ads_li2">May collect device identifiers such as Advertising ID for ad personalization</li>
+              <li data-i18n="miru_priv_tp_ads_li3">Is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
+            </ul>
+          </section>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_services_h">Third-Party Services</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-i18n="miru_priv_services_th1">Service</th>
-                <th data-i18n="miru_priv_services_th2">Data Collected</th>
-                <th data-i18n="miru_priv_services_th3">Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-i18n="miru_priv_services_row1c1"><strong>Firebase Analytics</strong></td>
-                <td data-i18n="miru_priv_services_row1c2">Anonymous usage events, device model, OS version, app version</td>
-                <td data-i18n="miru_priv_services_row1c3">Usage analysis and product improvement</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_services_row2c1"><strong>Firebase Crashlytics</strong></td>
-                <td data-i18n="miru_priv_services_row2c2">Crash logs, error diagnostics, device details, stack traces</td>
-                <td data-i18n="miru_priv_services_row2c3">Bug fixing and app stability</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_services_row3c1"><strong>Google AdMob</strong></td>
-                <td data-i18n="miru_priv_services_row3c2">Advertising ID, app interactions, diagnostics</td>
-                <td data-i18n="miru_priv_services_row3c3">Ad serving and personalization</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
+          <section id="ads">
+            <h2 data-i18n="miru_priv_ads_h">2. Advertising</h2>
+            <p data-i18n="miru_priv_ads_p">Miru is a free, ad-supported app. We use Google AdMob to display advertisements. AdMob may use your Advertising ID to show personalized ads. You can opt out of personalized ads in your device settings:</p>
+            <ul>
+              <li data-i18n="miru_priv_ads_optout"><strong>Android:</strong> Settings &rarr; Google &rarr; Ads &rarr; Opt out of Ads Personalization</li>
+            </ul>
+          </section>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_nocollect_h">3. Data We Do Not Collect</h2>
-        <ul>
-          <li data-i18n="miru_priv_nocollect_li1">We do <strong>not</strong> collect your name, email, phone number, or other personally identifiable information</li>
-          <li data-i18n="miru_priv_nocollect_li2">We do <strong>not</strong> require account creation or sign-in</li>
-          <li data-i18n="miru_priv_nocollect_li3">We do <strong>not</strong> upload your habit data, tasks, or notes to any server</li>
-          <li data-i18n="miru_priv_nocollect_li4">We do <strong>not</strong> share or sell your data to third parties</li>
-        </ul>
-      </article>
+          <section id="services">
+            <h2 data-i18n="miru_priv_services_h">Third-Party Services</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="miru_priv_services_th1">Service</th>
+                    <th data-i18n="miru_priv_services_th2">Data Collected</th>
+                    <th data-i18n="miru_priv_services_th3">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td data-i18n="miru_priv_services_row1c1"><strong>Firebase Analytics</strong></td><td data-i18n="miru_priv_services_row1c2">Anonymous usage events, device model, OS version, app version</td><td data-i18n="miru_priv_services_row1c3">Usage analysis and product improvement</td></tr>
+                  <tr><td data-i18n="miru_priv_services_row2c1"><strong>Firebase Crashlytics</strong></td><td data-i18n="miru_priv_services_row2c2">Crash logs, error diagnostics, device details, stack traces</td><td data-i18n="miru_priv_services_row2c3">Bug fixing and app stability</td></tr>
+                  <tr><td data-i18n="miru_priv_services_row3c1"><strong>Google AdMob</strong></td><td data-i18n="miru_priv_services_row3c2">Advertising ID, app interactions, diagnostics</td><td data-i18n="miru_priv_services_row3c3">Ad serving and personalization</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_summary_h">Data Collection Summary</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-i18n="miru_priv_summary_th1">Data Type</th>
-                <th data-i18n="miru_priv_summary_th2">Collected</th>
-                <th data-i18n="miru_priv_summary_th3">Shared</th>
-                <th data-i18n="miru_priv_summary_th4">Required</th>
-                <th data-i18n="miru_priv_summary_th5">Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-i18n="miru_priv_summary_row1c1">Habit, task, focus, and achievement data</td>
-                <td data-i18n="miru_priv_summary_row1c2">Yes</td>
-                <td data-i18n="miru_priv_summary_row1c3">No</td>
-                <td><span class="badge badge-required" data-i18n="miru_priv_summary_row1c4">Core</span></td>
-                <td data-i18n="miru_priv_summary_row1c5">App functionality</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_summary_row2c1">Theme and language preferences</td>
-                <td data-i18n="miru_priv_summary_row2c2">Yes</td>
-                <td data-i18n="miru_priv_summary_row2c3">No</td>
-                <td><span class="badge badge-required" data-i18n="miru_priv_summary_row2c4">Core</span></td>
-                <td data-i18n="miru_priv_summary_row2c5">Personalized app experience</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_summary_row3c1">Anonymous usage events</td>
-                <td data-i18n="miru_priv_summary_row3c2">Yes</td>
-                <td data-i18n="miru_priv_summary_row3c3">Yes</td>
-                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row3c4">Auto</span></td>
-                <td data-i18n="miru_priv_summary_row3c5">Analytics</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_summary_row4c1">Crash logs and diagnostics</td>
-                <td data-i18n="miru_priv_summary_row4c2">Yes</td>
-                <td data-i18n="miru_priv_summary_row4c3">Yes</td>
-                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row4c4">Auto</span></td>
-                <td data-i18n="miru_priv_summary_row4c5">Stability and debugging</td>
-              </tr>
-              <tr>
-                <td data-i18n="miru_priv_summary_row5c1">Advertising ID</td>
-                <td data-i18n="miru_priv_summary_row5c2">Yes</td>
-                <td data-i18n="miru_priv_summary_row5c3">Yes</td>
-                <td><span class="badge badge-optional" data-i18n="miru_priv_summary_row5c4">Auto</span></td>
-                <td data-i18n="miru_priv_summary_row5c5">Advertising</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p data-i18n="miru_priv_summary_p">All core app data remains stored locally on your device and is never uploaded to Golden Roots servers.</p>
-      </article>
+          <section id="nocollect">
+            <h2 data-i18n="miru_priv_nocollect_h">3. Data We Do Not Collect</h2>
+            <ul>
+              <li data-i18n="miru_priv_nocollect_li1">We do <strong>not</strong> collect your name, email, phone number, or other personally identifiable information</li>
+              <li data-i18n="miru_priv_nocollect_li2">We do <strong>not</strong> require account creation or sign-in</li>
+              <li data-i18n="miru_priv_nocollect_li3">We do <strong>not</strong> upload your habit data, tasks, or notes to any server</li>
+              <li data-i18n="miru_priv_nocollect_li4">We do <strong>not</strong> share or sell your data to third parties</li>
+            </ul>
+          </section>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_backup_h">4. Backup and Export</h2>
-        <p data-i18n="miru_priv_backup_p">Miru offers a local backup and export feature that saves your data as a JSON file on your device. This file stays on your device and is only shared if you explicitly choose to share it. We do not have access to your backup files.</p>
-      </article>
+          <section id="summary">
+            <h2 data-i18n="miru_priv_summary_h">Data Collection Summary</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="miru_priv_summary_th1">Data Type</th>
+                    <th data-i18n="miru_priv_summary_th2">Collected</th>
+                    <th data-i18n="miru_priv_summary_th3">Shared</th>
+                    <th data-i18n="miru_priv_summary_th4">Required</th>
+                    <th data-i18n="miru_priv_summary_th5">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td data-i18n="miru_priv_summary_row1c1">Habit, task, focus, and achievement data</td><td data-i18n="miru_priv_summary_row1c2">Yes</td><td data-i18n="miru_priv_summary_row1c3">No</td><td><span class="badge-required" data-i18n="miru_priv_summary_row1c4">Core</span></td><td data-i18n="miru_priv_summary_row1c5">App functionality</td></tr>
+                  <tr><td data-i18n="miru_priv_summary_row2c1">Theme and language preferences</td><td data-i18n="miru_priv_summary_row2c2">Yes</td><td data-i18n="miru_priv_summary_row2c3">No</td><td><span class="badge-required" data-i18n="miru_priv_summary_row2c4">Core</span></td><td data-i18n="miru_priv_summary_row2c5">Personalized app experience</td></tr>
+                  <tr><td data-i18n="miru_priv_summary_row3c1">Anonymous usage events</td><td data-i18n="miru_priv_summary_row3c2">Yes</td><td data-i18n="miru_priv_summary_row3c3">Yes</td><td><span class="badge-optional" data-i18n="miru_priv_summary_row3c4">Auto</span></td><td data-i18n="miru_priv_summary_row3c5">Analytics</td></tr>
+                  <tr><td data-i18n="miru_priv_summary_row4c1">Crash logs and diagnostics</td><td data-i18n="miru_priv_summary_row4c2">Yes</td><td data-i18n="miru_priv_summary_row4c3">Yes</td><td><span class="badge-optional" data-i18n="miru_priv_summary_row4c4">Auto</span></td><td data-i18n="miru_priv_summary_row4c5">Stability and debugging</td></tr>
+                  <tr><td data-i18n="miru_priv_summary_row5c1">Advertising ID</td><td data-i18n="miru_priv_summary_row5c2">Yes</td><td data-i18n="miru_priv_summary_row5c3">Yes</td><td><span class="badge-optional" data-i18n="miru_priv_summary_row5c4">Auto</span></td><td data-i18n="miru_priv_summary_row5c5">Advertising</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p data-i18n="miru_priv_summary_p">All core app data remains stored locally on your device and is never uploaded to Golden Roots servers.</p>
+          </section>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_notifications_h">5. Notifications</h2>
-        <p data-i18n="miru_priv_notifications_p">Miru may send local notifications such as habit reminders and streak alerts. These are processed entirely on your device. No notification data is sent to any server.</p>
-      </article>
+          <section id="backup">
+            <h2 data-i18n="miru_priv_backup_h">4. Backup and Export</h2>
+            <p data-i18n="miru_priv_backup_p">Miru offers a local backup and export feature that saves your data as a JSON file on your device. This file stays on your device and is only shared if you explicitly choose to share it. We do not have access to your backup files.</p>
+          </section>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_delete_h">6. Data Deletion</h2>
-        <p data-i18n="miru_priv_delete_p1">You can delete all your data at any time from within the app:</p>
-        <ul>
-          <li data-i18n="miru_priv_delete_li1">Go to <strong>Profile &rarr; Delete All Data</strong></li>
-          <li data-i18n="miru_priv_delete_li2">This permanently deletes all habits, tasks, logs, and settings from your device</li>
-        </ul>
-        <p data-i18n="miru_priv_delete_p2">You can also uninstall the app to remove all data.</p>
-      </article>
+          <section id="notifications">
+            <h2 data-i18n="miru_priv_notifications_h">5. Notifications</h2>
+            <p data-i18n="miru_priv_notifications_p">Miru may send local notifications such as habit reminders and streak alerts. These are processed entirely on your device. No notification data is sent to any server.</p>
+          </section>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_children_h">7. Children's Privacy</h2>
-        <p data-i18n="miru_priv_children_p">Miru is not directed at children under 13. We do not knowingly collect information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us.</p>
-      </article>
+          <section id="deletion">
+            <h2 data-i18n="miru_priv_delete_h">6. Data Deletion</h2>
+            <p data-i18n="miru_priv_delete_p1">You can delete all your data at any time from within the app:</p>
+            <ul>
+              <li data-i18n="miru_priv_delete_li1">Go to <strong>Profile &rarr; Delete All Data</strong></li>
+              <li data-i18n="miru_priv_delete_li2">This permanently deletes all habits, tasks, logs, and settings from your device</li>
+            </ul>
+            <p data-i18n="miru_priv_delete_p2">You can also uninstall the app to remove all data.</p>
+          </section>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_security_h">8. Security</h2>
-        <p data-i18n="miru_priv_security_p">We take reasonable measures to protect your data:</p>
-        <ul>
-          <li data-i18n="miru_priv_security_li1">All local data is encrypted with AES-256</li>
-          <li data-i18n="miru_priv_security_li2">Encryption keys are stored in Android Keystore via Flutter Secure Storage</li>
-          <li data-i18n="miru_priv_security_li3">All network communication uses HTTPS</li>
-        </ul>
-      </article>
+          <section id="children">
+            <h2 data-i18n="miru_priv_children_h">7. Children's Privacy</h2>
+            <p data-i18n="miru_priv_children_p">Miru is not directed at children under 13. We do not knowingly collect information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us.</p>
+          </section>
 
-      <article class="panel anim anim-delay-1">
-        <h2 data-i18n="miru_priv_links_h">9. Third-Party Service Links</h2>
-        <ul>
-          <li data-i18n="miru_priv_links_li1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> for Analytics, Crashlytics, and AdMob</li>
-          <li data-i18n="miru_priv_links_li2"><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a></li>
-        </ul>
-      </article>
+          <section id="security">
+            <h2 data-i18n="miru_priv_security_h">8. Security</h2>
+            <p data-i18n="miru_priv_security_p">We take reasonable measures to protect your data:</p>
+            <ul>
+              <li data-i18n="miru_priv_security_li1">All local data is encrypted with AES-256</li>
+              <li data-i18n="miru_priv_security_li2">Encryption keys are stored in Android Keystore via Flutter Secure Storage</li>
+              <li data-i18n="miru_priv_security_li3">All network communication uses HTTPS</li>
+            </ul>
+          </section>
 
-      <article class="panel anim">
-        <h2 data-i18n="miru_priv_changes_h">10. Changes to This Policy</h2>
-        <p data-i18n="miru_priv_changes_p">We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-      </article>
+          <section id="links">
+            <h2 data-i18n="miru_priv_links_h">9. Third-Party Service Links</h2>
+            <ul>
+              <li data-i18n="miru_priv_links_li1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> for Analytics, Crashlytics, and AdMob</li>
+              <li data-i18n="miru_priv_links_li2"><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a></li>
+            </ul>
+          </section>
 
-      <article class="panel contact-card anim">
-        <h2 data-i18n="miru_priv_contact_h">11. Contact Us</h2>
-        <p data-i18n="miru_priv_contact_p">If you have questions about this Privacy Policy, contact us at:</p>
-        <a href="mailto:goldenroots.apps@gmail.com" class="contact-btn">goldenroots.apps@gmail.com</a>
-      </article>
+          <section id="changes">
+            <h2 data-i18n="miru_priv_changes_h">10. Changes to This Policy</h2>
+            <p data-i18n="miru_priv_changes_p">We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+          </section>
+
+          <section id="contact">
+            <h2 data-i18n="miru_priv_contact_h">11. Contact Us</h2>
+            <div class="contact-card">
+              <p data-i18n="miru_priv_contact_p">If you have questions about this Privacy Policy, contact us at:</p>
+              <a href="mailto:goldenroots.apps@gmail.com" class="btn btn--gradient">goldenroots.apps@gmail.com</a>
+            </div>
+          </section>
+        </article>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-inner" data-i18n="footer_copy">&copy; 2026 Golden Roots. All rights reserved.</div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__rainbow" aria-hidden="true"></div>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="/" class="brand">
+            <img src="../../assets/images/goldenroots-logo.png" alt="" width="28" height="28" loading="lazy" decoding="async">
+            <span>Golden Roots</span>
+          </a>
+          <p data-i18n="footer_tagline">Crafting simple, powerful mobile apps that make everyday tasks easier.</p>
+        </div>
+        <div class="site-footer__col">
+          <h4 data-i18n="footer_col_apps">Apps</h4>
+          <ul>
+            <li><a href="/#apps" data-i18n="app_name">QR Scanner Pro+</a></li>
+            <li><a href="/#apps" data-i18n="app2_name">CashDiary</a></li>
+            <li><a href="https://play.google.com/store/apps/developer?id=Golden+Roots" target="_blank" rel="noopener" data-i18n="footer_gplay">Google Play</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h4 data-i18n="footer_col_company">Company</h4>
+          <ul>
+            <li><a href="/about.html" data-i18n="footer_about">About Us</a></li>
+            <li><a href="mailto:goldenroots.apps@gmail.com" data-i18n="footer_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h4 data-i18n="footer_col_legal">Legal</h4>
+          <ul>
+            <li><a href="/terms.html" data-i18n="footer_terms">Terms of Service</a></li>
+            <li><a href="/apps/qrscannerpro/privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Golden Roots. All rights reserved.</p>
+        <p data-i18n="footer_made">Made with care in Thailand.</p>
+      </div>
+    </div>
   </footer>
 
+  <script src="../../assets/js/theme.js"></script>
   <script src="../../assets/js/lang/core.js"></script>
   <script src="../../assets/js/lang/miru.js"></script>
+  <script src="../../assets/js/lang/extend.js"></script>
   <script>
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll(".anim").forEach(function (el) { observer.observe(el); });
+    (function () {
+      var nav = document.querySelector(".site-nav");
+      if (nav) {
+        var onScroll = function () { nav.classList.toggle("is-scrolled", window.scrollY > 4); };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
+      var tocLinks = document.querySelectorAll(".legal-toc a");
+      var sections = document.querySelectorAll(".legal-prose section[id]");
+      if ("IntersectionObserver" in window && tocLinks.length && sections.length) {
+        var byId = {};
+        tocLinks.forEach(function (a) {
+          var href = a.getAttribute("href");
+          if (href && href.indexOf("#") === 0) byId[href.slice(1)] = a;
+        });
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var id = entry.target.id;
+            if (!byId[id]) return;
+            if (entry.isIntersecting) {
+              tocLinks.forEach(function (a) { a.classList.remove("is-active"); });
+              byId[id].classList.add("is-active");
+            }
+          });
+        }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+        sections.forEach(function (s) { io.observe(s); });
+      }
+    })();
   </script>
 </body>
 </html>

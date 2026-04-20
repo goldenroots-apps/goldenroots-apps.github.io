@@ -525,6 +525,35 @@
   background: var(--color-mint);
 }
 
+.page-hero__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+.page-hero__icon img { width: 52px; height: 52px; border-radius: var(--radius-md); }
+
+.page-hero--gold .page-hero__title .accent { background-image: var(--gradient-gold); }
+.page-hero--mint .page-hero__title .accent { background-image: var(--gradient-mint); }
+.page-hero--lavender .page-hero__title .accent { background-image: var(--gradient-lavender); }
+
+.page-hero--mint::before {
+  background:
+    radial-gradient(55% 50% at 80% 25%, rgba(63, 191, 151, 0.26), transparent 65%),
+    radial-gradient(50% 60% at 25% 30%, rgba(124, 92, 255, 0.16), transparent 60%);
+}
+.page-hero--lavender::before {
+  background:
+    radial-gradient(55% 50% at 80% 25%, rgba(124, 92, 255, 0.28), transparent 65%),
+    radial-gradient(50% 60% at 25% 30%, rgba(63, 191, 151, 0.18), transparent 60%);
+}
+
 /* ============================================================
    LEGAL PAGES (terms, privacy)
    ============================================================ */
