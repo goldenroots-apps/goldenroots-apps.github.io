@@ -1,4 +1,7 @@
 (function () {
+  var scriptEl = document.currentScript;
+  var baseUrl = scriptEl ? new URL("../../i18n/", scriptEl.src).href : "/assets/i18n/";
+
   var EXTRA_FLAGS = {
     ar: "sa", bn: "bd", de: "de", fa: "ir", fil: "ph", fr: "fr",
     id: "id", it: "it", lo: "la", ms: "my", my: "mm", nl: "nl",
@@ -32,7 +35,7 @@
     if (typeof LANGS !== "undefined" && LANGS[code]) { done(true); return; }
     if (cache[code] === false) { done(false); return; }
     if (cache[code]) { if (typeof LANGS !== "undefined") LANGS[code] = cache[code]; done(true); return; }
-    fetch("i18n/" + code + ".json", { cache: "default" })
+    fetch(baseUrl + code + ".json", { cache: "default" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (data && typeof LANGS !== "undefined") {
