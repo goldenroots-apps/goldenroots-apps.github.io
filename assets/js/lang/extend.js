@@ -7,22 +7,50 @@
     id: "id", it: "it", lo: "la", ms: "my", my: "mm", nl: "nl",
     pt: "pt", ru: "ru", tr: "tr", ur: "pk", vi: "vn"
   };
-  var RTL = { ar: 1, fa: 1, ur: 1 };
 
   if (typeof LANG_FLAGS !== "undefined") {
     for (var k in EXTRA_FLAGS) LANG_FLAGS[k] = EXTRA_FLAGS[k];
+  }
+
+  // Snapshot the original English defaults from HTML before any setLang runs.
+  // This lets us reset every [data-i18n] element before applying a new language,
+  // so missing keys fall back to English instead of lingering from a previous language.
+  var DEFAULTS = {};
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    var key = el.getAttribute("data-i18n");
+    if (!(key in DEFAULTS)) DEFAULTS[key] = el.innerHTML;
+  });
+
+  function resetToDefaults() {
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (key in DEFAULTS) el.innerHTML = DEFAULTS[key];
+    });
+  }
+
+  // Wrap setLang: reset to English defaults first, then apply the translation.
+  // Always force dir=ltr, even for ar/fa/ur, to avoid layout-flip issues.
+  if (typeof window.setLang === "function" && !window.setLang.__wrapped) {
+    var origSetLang = window.setLang;
+    window.setLang = function (code) {
+      resetToDefaults();
+      origSetLang(code);
+      document.documentElement.dir = "ltr";
+    };
+    window.setLang.__wrapped = true;
   }
 
   var cache = {};
   var origPickLang = window.pickLang;
 
   function applyMissing(code) {
+    resetToDefaults();
     var flag = document.getElementById("lang-flag");
     var codeEl = document.getElementById("lang-code");
     if (flag) flag.className = "fi fi-" + (EXTRA_FLAGS[code] || (typeof LANG_FLAGS !== "undefined" && LANG_FLAGS[code]) || "us");
     if (codeEl) codeEl.textContent = code.toUpperCase();
     document.documentElement.lang = code;
-    document.documentElement.dir = RTL[code] ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr";
     try { localStorage.setItem("lang", code); } catch (e) {}
     document.querySelectorAll(".lang-option").forEach(function (o) {
       o.classList.toggle("active", o.getAttribute("data-lang") === code);
@@ -39,7 +67,7 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (data && typeof LANGS !== "undefined") {
-          if (!data.dir) data.dir = RTL[code] ? "rtl" : "ltr";
+          data.dir = "ltr";
           LANGS[code] = data;
           cache[code] = data;
           done(true);
