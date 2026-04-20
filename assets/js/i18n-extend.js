@@ -1,0 +1,73 @@
+(function () {
+  var EXTRA_FLAGS = {
+    ar: "sa", bn: "bd", de: "de", fa: "ir", fil: "ph", fr: "fr",
+    id: "id", it: "it", lo: "la", ms: "my", my: "mm", nl: "nl",
+    pt: "pt", ru: "ru", tr: "tr", ur: "pk", vi: "vn"
+  };
+  var RTL = { ar: 1, fa: 1, ur: 1 };
+
+  if (typeof LANG_FLAGS !== "undefined") {
+    for (var k in EXTRA_FLAGS) LANG_FLAGS[k] = EXTRA_FLAGS[k];
+  }
+
+  var cache = {};
+  var origPickLang = window.pickLang;
+
+  function applyMissing(code) {
+    var flag = document.getElementById("lang-flag");
+    var codeEl = document.getElementById("lang-code");
+    if (flag) flag.className = "fi fi-" + (EXTRA_FLAGS[code] || (typeof LANG_FLAGS !== "undefined" && LANG_FLAGS[code]) || "us");
+    if (codeEl) codeEl.textContent = code.toUpperCase();
+    document.documentElement.lang = code;
+    document.documentElement.dir = RTL[code] ? "rtl" : "ltr";
+    try { localStorage.setItem("lang", code); } catch (e) {}
+    document.querySelectorAll(".lang-option").forEach(function (o) {
+      o.classList.toggle("active", o.getAttribute("data-lang") === code);
+    });
+    var dd = document.getElementById("lang-dropdown");
+    if (dd) dd.classList.remove("open");
+  }
+
+  function load(code, done) {
+    if (typeof LANGS !== "undefined" && LANGS[code]) { done(true); return; }
+    if (cache[code] === false) { done(false); return; }
+    if (cache[code]) { if (typeof LANGS !== "undefined") LANGS[code] = cache[code]; done(true); return; }
+    fetch("i18n/" + code + ".json", { cache: "default" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (data && typeof LANGS !== "undefined") {
+          if (!data.dir) data.dir = RTL[code] ? "rtl" : "ltr";
+          LANGS[code] = data;
+          cache[code] = data;
+          done(true);
+        } else {
+          cache[code] = false;
+          done(false);
+        }
+      })
+      .catch(function () { cache[code] = false; done(false); });
+  }
+
+  window.pickLang = function (code) {
+    load(code, function (ok) {
+      if (ok && typeof setLang === "function") {
+        origPickLang ? origPickLang(code) : setLang(code);
+      } else {
+        applyMissing(code);
+      }
+    });
+  };
+
+  var initial = (function () {
+    var url = new URLSearchParams(window.location.search).get("lang");
+    var stored;
+    try { stored = localStorage.getItem("lang"); } catch (e) {}
+    return url || stored;
+  })();
+  if (initial && typeof LANGS !== "undefined" && !LANGS[initial]) {
+    load(initial, function (ok) {
+      if (ok && typeof setLang === "function") setLang(initial);
+      else applyMissing(initial);
+    });
+  }
+})();

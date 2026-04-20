@@ -218,7 +218,7 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 200px;
+  min-width: 220px;
   padding: 6px;
   background: var(--color-surface-elevated);
   border: 1px solid var(--color-border);
@@ -229,6 +229,13 @@
   transform: translateY(-4px);
   transition: opacity var(--duration-fast), transform var(--duration-fast), visibility var(--duration-fast);
 }
+.lang-menu--scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.lang-menu--scroll::-webkit-scrollbar { width: 6px; }
+.lang-menu--scroll::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 999px; }
 .lang-dropdown.open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
 .lang-option {
