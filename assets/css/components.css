@@ -1218,6 +1218,103 @@
 }
 
 /* ============================================================
+   MOBILE POLISH
+   ============================================================ */
+
+@media (max-width: 600px) {
+  :root { --gutter: 18px; }
+
+  .section { padding-block: var(--space-16); }
+  .section__header { margin-bottom: var(--space-10); text-align: left; }
+
+  .hero { padding-block: var(--space-10) var(--space-12); }
+  .hero__inner { gap: var(--space-8); }
+  .hero__copy .eyebrow { margin-bottom: var(--space-4); }
+  .hero__title { margin-bottom: var(--space-4); }
+  .hero__lead { margin-bottom: var(--space-6); }
+  .hero__actions { margin-bottom: var(--space-6); gap: var(--space-2); }
+  .hero__actions .btn { flex: 1 1 auto; justify-content: center; }
+  .hero__visual { min-height: 460px; perspective: none; }
+
+  .page-hero { padding-block: var(--space-10) var(--space-10); }
+  .page-hero__title { max-width: none; }
+  .page-hero__lead { font-size: var(--text-base); }
+  .page-hero__icon { width: 60px; height: 60px; }
+  .page-hero__icon img { width: 44px; height: 44px; }
+
+  .stats { padding-block: var(--space-10); }
+  .stats__grid { gap: var(--space-6); }
+
+  .bento__tile { padding: var(--space-6); border-radius: var(--radius-lg); }
+  .bento__tile h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+  .bento__tile--feature h3 { font-size: var(--text-xl); }
+  .bento__icon { width: 40px; height: 40px; margin-bottom: var(--space-4); border-radius: 12px; }
+  .bento__icon svg { width: 18px; height: 18px; }
+  .marquee { margin-inline: calc(-1 * var(--space-6)); margin-top: var(--space-5); }
+
+  .showcase__list { gap: var(--space-16); }
+  .app-feature { gap: var(--space-8); }
+  .app-feature__logo { width: 52px; height: 52px; margin-bottom: var(--space-4); }
+  .app-feature__desc { font-size: var(--text-base); margin-bottom: var(--space-5); }
+  .app-feature__actions .btn { flex: 1 1 auto; justify-content: center; }
+
+  .cta { padding-block: var(--space-16); }
+  .cta p { font-size: var(--text-base); margin-bottom: var(--space-6); }
+
+  .site-nav__inner { height: 58px; gap: var(--space-2); padding-inline: var(--gutter); }
+  .brand span { display: none; }
+
+  .theme-toggle { width: 34px; height: 34px; }
+  .lang-btn { padding: 6px 10px; height: 34px; }
+  .lang-btn .arrow { display: none; }
+  .lang-menu {
+    right: 0;
+    min-width: 220px;
+    max-width: calc(100vw - 32px);
+    max-height: 70vh;
+  }
+
+  .site-footer { padding-block: var(--space-12) var(--space-8); }
+  .site-footer__grid { gap: var(--space-8); margin-bottom: var(--space-8); }
+  .site-footer__brand { max-width: none; }
+  .site-footer__bottom { padding-top: var(--space-5); flex-direction: column; gap: var(--space-2); }
+  .site-footer__col h4 { margin-bottom: var(--space-3); }
+
+  .legal-layout { gap: var(--space-8); }
+  .legal-toc { padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+  .legal-toc ol { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+  .legal-toc li { flex: 0 0 auto; }
+  .legal-toc a { padding: 6px 10px; font-size: var(--text-xs); }
+  .legal-prose section { padding-block: var(--space-6); }
+  .legal-prose h2 { font-size: var(--text-xl); }
+  .legal-prose h3 { font-size: var(--text-base); }
+
+  .float-card { padding: 10px 14px; font-size: 11px; }
+  .float-card__icon { width: 28px; height: 28px; border-radius: 8px; }
+  .float-card__icon svg { width: 14px; height: 14px; }
+  .float-card__label { font-size: 11px; }
+  .float-card__value { font-size: 10px; }
+}
+
+@media (max-width: 420px) {
+  :root { --gutter: 14px; }
+
+  .hero__title { font-size: clamp(36px, 10vw, 52px); }
+  .hero__visual { min-height: 420px; }
+  .float-card { display: none; }
+  .phone-mockup { width: min(100%, 280px); }
+
+  .stats__item dt { font-size: clamp(var(--text-2xl), 8vw, var(--text-3xl)); }
+
+  .bento__tile { padding: var(--space-5); }
+  .bento__icon { width: 36px; height: 36px; }
+
+  .theme-visual { height: 60px; }
+
+  .not-found__number { font-size: clamp(96px, 30vw, 160px); }
+}
+
+/* ============================================================
    ANIMATIONS
    ============================================================ */
 
